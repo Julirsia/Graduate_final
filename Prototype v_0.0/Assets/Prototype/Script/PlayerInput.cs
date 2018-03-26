@@ -2,13 +2,16 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerInput : MonoBehaviour
+public class PlayerInput : Photon.PunBehaviour
 {
     private Player user;
 
     void Awake()
     {
         user = GetComponent<Player>();
+
+       if(!photonView.isMine)
+        { enabled = false; }
     }
 
 	// Use this for initialization
