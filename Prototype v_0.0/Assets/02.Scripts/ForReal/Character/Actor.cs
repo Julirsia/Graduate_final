@@ -7,10 +7,12 @@ using UnityEngine;
  */
 public class Actor : MonoBehaviour
 {
-    //public ICommand command = InputHandler.GetInput();
+    
+    public int actorID = 0;//추후 액터 ID값에 따라 데이터를 받아오게 할 것 
+
     public Animator anim;
     private Transform myTr;
-    // Use this for initialization
+    
     void Start()
     {
         anim = GetComponent<Animator>();
@@ -27,9 +29,7 @@ public class Actor : MonoBehaviour
     { }
     public void Move()
     {
-        Transform forwd = myTr;
-        //forwd.forward = camRot.forward;
-        //Vector3 dir = HorizontalWrapMode * forwd.right + 
+
     }
     public void Attack()
     { }

@@ -4,23 +4,56 @@ using UnityEngine;
 
 public class InputHandler : MonoBehaviour
 {
-    public delegate ICommand CommandMgr();
-    public CommandMgr[] commander;
+    public enum userInput { Move, MoveJump, Attack , Skill,None}
+    userInput pressedBtn = userInput.None;
 
-    private float horizontal =0;
-    private float vertical =0 ;
+    ICommand CmdMove, CmdAttack, CmdDie;
+    ICommand command;
+
+    Actor actor;
 
     private void Start()
     {
-        //commander = new CommandMgr[3] { MoveCommand, AttackCommand, DieCommand };
-    }
-    void Update()
-    {
-        //GetInput();
+        actor = GetComponent<Actor>();
     }
 
-    /* GetInput
-     * 목적 : Update에서 작동 
-     */
+    public void SetCommand()
+    {
+        CmdMove = new MoveCommand();
+        CmdAttack = new AttackCommand();
+        CmdDie = new DieCommand();
+    }
+
+    void Update()
+    {
+        command = GetCommand();    
+    }
+
+    private ICommand GetCommand()
+    {
+        if (IsPressed(userInput.Move))
+            return CmdMove;
+        else if (IsPressed(userInput.Attack))
+            return CmdAttack;
+        //else if(IsPressed(userInput.))
+
+        return null;
+    }
+
+    public bool IsPressed(userInput btn)
+    {
+        pressedBtn = userInput.None;
+
+        if (Input.GetAxis("Horizontal") != 0||Input.GetAxis("Vertical") != 0)
+            pressedBtn = userInput.Move;
+        else if (Input.GetKey(KeyCode.Space))
+            pressedBtn = userInput.MoveJump;
+        else if (Input.GetMouseButtonDown(0))
+            pressedBtn = userInput.Attack;
+
+        return (btn == pressedBtn);
+    }
+
+
 
 }
