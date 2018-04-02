@@ -2,16 +2,28 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/*유저의 입력을 받아서 Command를 통해 버튼 입력을 처리 하는 클래스*/
+
 public class InputHandler : MonoBehaviour
 {
+    #region command pattern variables
+
     public enum userInput { Move, MoveJump, Attack , Skill,None}
-    userInput pressedBtn = userInput.None;
+    private userInput pressedBtn = userInput.None;
 
-    ICommand CmdMove, CmdAttack, CmdDie;
-    ICommand command;
+    private ICommand CmdMove, CmdAttack, CmdDie;
+    private ICommand command;
 
-    Actor actor;
+    public Actor actor;
 
+    #endregion
+
+    #region input values
+    private float horizInput= 0f;
+    private float vertInput= 0f;
+    #endregion
+
+    
     private void Start()
     {
         actor = GetComponent<Actor>();
@@ -19,9 +31,8 @@ public class InputHandler : MonoBehaviour
 
     public void SetCommand()
     {
-        CmdMove = new MoveCommand();
-        CmdAttack = new AttackCommand();
-        CmdDie = new DieCommand();
+        CmdMove = new MoveCommand(actor);
+        CmdAttack = new AttackCommand(actor);
     }
 
     void Update()
@@ -29,7 +40,7 @@ public class InputHandler : MonoBehaviour
         command = GetCommand();    
     }
 
-    private ICommand GetCommand()
+    public ICommand GetCommand()
     {
         if (IsPressed(userInput.Move))
             return CmdMove;
@@ -44,8 +55,12 @@ public class InputHandler : MonoBehaviour
     {
         pressedBtn = userInput.None;
 
-        if (Input.GetAxis("Horizontal") != 0||Input.GetAxis("Vertical") != 0)
+        if (Input.GetAxis("Horizontal") != 0 || Input.GetAxis("Vertical") != 0)
+        {
             pressedBtn = userInput.Move;
+            horizInput = Input.GetAxis("Horizontal");
+            vertInput = Input.GetAxis("Vertical");
+        }
         else if (Input.GetKey(KeyCode.Space))
             pressedBtn = userInput.MoveJump;
         else if (Input.GetMouseButtonDown(0))

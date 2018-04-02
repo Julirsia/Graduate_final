@@ -7,7 +7,20 @@ using UnityEngine;
  */
 public class Actor : MonoBehaviour
 {
-    
+    private float horizontal;
+    private float vertical;
+
+    public float Horizontal
+    {
+        get { return horizontal;}
+        set { horizontal = value; }
+    }
+    public float Vertical
+    {
+        get { return vertical; }
+        set { vertical = value; }
+    }
+
     public int actorID = 0;//추후 액터 ID값에 따라 데이터를 받아오게 할 것 
 
     public Animator anim;
@@ -16,7 +29,7 @@ public class Actor : MonoBehaviour
     void Start()
     {
         anim = GetComponent<Animator>();
-
+        
     }
 
     // Update is called once per frame
@@ -26,16 +39,27 @@ public class Actor : MonoBehaviour
     }
 
     public void Idle()
-    { }
+    {
+        anim.SetBool("IsWalk", true);
+        anim.SetBool("IsAttack", false);
+    }
     public void Move()
     {
-
+        anim.SetBool("IsWalk", true);
+        
     }
     public void Attack()
-    { }
+    {
+        anim.SetBool("IsAttack", false);
+
+    }
     public void Die()
-    { }
+    {
+        anim.SetTrigger("IsDie");
+    }
 
     public void OnDamaged()
-    { }
+    {
+        anim.SetTrigger("IsHit");
+    }
 }
