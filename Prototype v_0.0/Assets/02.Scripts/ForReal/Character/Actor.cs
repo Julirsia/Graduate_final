@@ -7,6 +7,7 @@ using UnityEngine;
  */
 public class Actor : MonoBehaviour
 {
+    #region input values
     private float horizontal;
     private float vertical;
 
@@ -20,16 +21,24 @@ public class Actor : MonoBehaviour
         get { return vertical; }
         set { vertical = value; }
     }
+    #endregion
 
+    #region 나중에 DB로 빠질 부분
     public int actorID = 0;//추후 액터 ID값에 따라 데이터를 받아오게 할 것 
 
+    public float moveSpeed;
+    public float jumpSpeed;
+    #endregion
+
+    #region components
     public Animator anim;
     private Transform myTr;
-    
+    #endregion
+
     void Start()
     {
         anim = GetComponent<Animator>();
-        
+        myTr = transform;   
     }
 
     // Update is called once per frame
@@ -40,17 +49,22 @@ public class Actor : MonoBehaviour
 
     public void Idle()
     {
-        anim.SetBool("IsWalk", true);
+        anim.SetBool("IsWalk", false);
         anim.SetBool("IsAttack", false);
     }
     public void Move()
     {
         anim.SetBool("IsWalk", true);
-        
+
+        Vector3 dir = horizontal * Vector3.right + vertical * Vector3.forward;
+        myTr.position += (dir.normalized * moveSpeed * Time.deltaTime);
+
     }
     public void Attack()
     {
-        anim.SetBool("IsAttack", false);
+        Debug.Log("Attack");
+        anim.SetBool("IsAttack", true);
+        anim.SetTrigger("CloseAttack");
 
     }
     public void Die()

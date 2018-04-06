@@ -8,10 +8,10 @@ public class InputHandler : MonoBehaviour
 {
     #region command pattern variables
 
-    public enum userInput { Move, MoveJump, Attack , Skill,None}
+    public enum userInput { Move, MoveJump, Attack , Skill, None}
     private userInput pressedBtn = userInput.None;
 
-    private ICommand CmdMove, CmdAttack, CmdDie;
+    private ICommand CmdMove, CmdAttack, CmdIdle, CmdDie;
     private ICommand command;
 
     public Actor actor;
@@ -27,17 +27,22 @@ public class InputHandler : MonoBehaviour
     private void Start()
     {
         actor = GetComponent<Actor>();
-    }
-
-    public void SetCommand()
-    {
-        CmdMove = new MoveCommand(actor);
-        CmdAttack = new AttackCommand(actor);
+        SetCommand();
+        
     }
 
     void Update()
     {
-        command = GetCommand();    
+        command = GetCommand();
+        command.Execute(actor);
+        
+    }
+
+    public void SetCommand()
+    {
+        CmdMove = new MoveCommand();
+        CmdAttack = new AttackCommand();
+        CmdIdle = new IdleCommand();
     }
 
     public ICommand GetCommand()
@@ -47,8 +52,8 @@ public class InputHandler : MonoBehaviour
         else if (IsPressed(userInput.Attack))
             return CmdAttack;
         //else if(IsPressed(userInput.))
-
-        return null;
+        else
+            return CmdIdle;
     }
 
     public bool IsPressed(userInput btn)
@@ -57,16 +62,17 @@ public class InputHandler : MonoBehaviour
 
         if (Input.GetAxis("Horizontal") != 0 || Input.GetAxis("Vertical") != 0)
         {
+            actor.Horizontal = Input.GetAxisRaw("Horizontal");
+            actor.Vertical = Input.GetAxisRaw("Vertical");
             pressedBtn = userInput.Move;
-            horizInput = Input.GetAxis("Horizontal");
-            vertInput = Input.GetAxis("Vertical");
         }
         else if (Input.GetKey(KeyCode.Space))
             pressedBtn = userInput.MoveJump;
         else if (Input.GetMouseButtonDown(0))
             pressedBtn = userInput.Attack;
 
-        return (btn == pressedBtn);
+        return 
+            (btn == pressedBtn);
     }
 
 
