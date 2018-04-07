@@ -19,6 +19,8 @@ public class InputHandler : MonoBehaviour
     #endregion
 
     #region input values
+    public Transform camRotation;
+
     private float horizInput= 0f;
     private float vertInput= 0f;
     #endregion
@@ -28,16 +30,15 @@ public class InputHandler : MonoBehaviour
     {
         actor = GetComponent<Actor>();
         SetCommand();
-        
     }
 
     void Update()
     {
         command = GetCommand();
         command.Execute(actor);
-        
     }
 
+    /* Command초기화 메서드*/
     public void SetCommand()
     {
         CmdMove = new MoveCommand();
@@ -45,6 +46,9 @@ public class InputHandler : MonoBehaviour
         CmdIdle = new IdleCommand();
     }
 
+    /*유저의 키 입력값을 받아 그 입력에 해당하는 Command를 리턴하는 메서드
+     * IsPressed메서드로 해당 키 입력을 체크
+     */
     public ICommand GetCommand()
     {
         if (IsPressed(userInput.Move))
@@ -56,6 +60,10 @@ public class InputHandler : MonoBehaviour
             return CmdIdle;
     }
 
+    /* 인풋이 들어왔을때 Command에 해당하는 키가 입력 되었는지 체크하는 메서드
+     * 해당 키 입력값을 받고 방향키 입력일 경우 방향키 입력의 값을 actor에게 넘겨줌.
+     * 리턴 형은 bool
+     */
     public bool IsPressed(userInput btn)
     {
         pressedBtn = userInput.None;

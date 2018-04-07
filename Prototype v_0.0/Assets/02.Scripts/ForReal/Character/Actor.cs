@@ -56,9 +56,13 @@ public class Actor : MonoBehaviour
     {
         anim.SetBool("IsWalk", true);
 
+        Transform forwd = myTr;
+        //forwd.forward = ;
         Vector3 dir = horizontal * Vector3.right + vertical * Vector3.forward;
         myTr.position += (dir.normalized * moveSpeed * Time.deltaTime);
 
+        //dir.Normalize();
+        //myTr.forward = dir;
     }
     public void Attack()
     {
