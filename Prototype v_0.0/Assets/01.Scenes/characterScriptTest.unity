@@ -2060,6 +2060,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   actor: {fileID: 0}
+  camRotation: {fileID: 0}
 --- !u!114 &1463091632
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2071,6 +2072,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4ece6ae645c6ab34993f99848fc50db3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  camRot: {fileID: 0}
   actorID: 0
   moveSpeed: 10
   jumpSpeed: 10
@@ -2767,7 +2769,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 1dac5cd58ba9e4e4295f6968ff802b41, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
