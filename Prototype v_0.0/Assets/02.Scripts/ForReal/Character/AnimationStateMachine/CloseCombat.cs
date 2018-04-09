@@ -1,10 +1,9 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using HY;
 
 public class CloseCombat : StateMachineBehaviour {
-
+/*
     public Player player;
     public PlayerAttackEffect playerEffect;
 
@@ -53,5 +52,5 @@ public class CloseCombat : StateMachineBehaviour {
     public override void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         player.EndAttack();
-    }
+    }*/
 }

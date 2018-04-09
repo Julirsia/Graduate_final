@@ -11,7 +11,6 @@ public class InputHandler : MonoBehaviour
     public enum userInput { Move, MoveJump, Attack , Skill, None}
     private userInput pressedBtn = userInput.None;
 
-    private ICommand CmdMove, CmdAttack, CmdIdle, CmdDie;
     private ICommand command;
 
     public Actor actor;
@@ -29,7 +28,6 @@ public class InputHandler : MonoBehaviour
     private void Start()
     {
         actor = GetComponent<Actor>();
-        SetCommand();
     }
 
     void Update()
@@ -38,26 +36,18 @@ public class InputHandler : MonoBehaviour
         command.Execute(actor);
     }
 
-    /* Command초기화 메서드*/
-    public void SetCommand()
-    {
-        CmdMove = new MoveCommand();
-        CmdAttack = new AttackCommand();
-        CmdIdle = new IdleCommand();
-    }
-
     /*유저의 키 입력값을 받아 그 입력에 해당하는 Command를 리턴하는 메서드
      * IsPressed메서드로 해당 키 입력을 체크
      */
     public ICommand GetCommand()
     {
         if (IsPressed(userInput.Move))
-            return CmdMove;
+            return new MoveCommand(actor, horizInput, vertInput);
         else if (IsPressed(userInput.Attack))
-            return CmdAttack;
+            return new AttackCommand();
         //else if(IsPressed(userInput.))
         else
-            return CmdIdle;
+            return new IdleCommand();
     }
 
     /* 인풋이 들어왔을때 Command에 해당하는 키가 입력 되었는지 체크하는 메서드
@@ -70,8 +60,8 @@ public class InputHandler : MonoBehaviour
 
         if (Input.GetAxis("Horizontal") != 0 || Input.GetAxis("Vertical") != 0)
         {
-            actor.Horizontal = Input.GetAxisRaw("Horizontal");
-            actor.Vertical = Input.GetAxisRaw("Vertical");
+            horizInput = Input.GetAxisRaw("Horizontal");
+            vertInput = Input.GetAxisRaw("Vertical");
             pressedBtn = userInput.Move;
         }
         else if (Input.GetKey(KeyCode.Space))
@@ -82,7 +72,5 @@ public class InputHandler : MonoBehaviour
         return 
             (btn == pressedBtn);
     }
-
-
 
 }

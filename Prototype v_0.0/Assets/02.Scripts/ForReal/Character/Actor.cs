@@ -8,7 +8,7 @@ using UnityEngine;
 public class Actor : MonoBehaviour
 {
     #region input values
-    public Transform camRot;
+    public Transform cameraRotation;
     private float horizontal;
     private float vertical;
 
@@ -40,7 +40,7 @@ public class Actor : MonoBehaviour
     {
         anim = GetComponent<Animator>();
         myTr = transform;
-        camRot = Camera.main.transform;
+        cameraRotation = Camera.main.transform;
     }
 
     // Update is called once per frame
@@ -59,7 +59,7 @@ public class Actor : MonoBehaviour
         anim.SetBool("IsWalk", true);
 
         Transform forwd = myTr;
-        forwd.forward = camRot.forward;
+        forwd.forward = cameraRotation.forward;
         Vector3 dir = horizontal * forwd.right + vertical * forwd.forward;
         myTr.position += (dir.normalized * moveSpeed * Time.deltaTime);
     }
