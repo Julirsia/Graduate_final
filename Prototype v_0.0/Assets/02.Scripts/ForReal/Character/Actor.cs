@@ -60,7 +60,7 @@ public class Actor : MonoBehaviour
 
         Transform forwd = myTr;
         forwd.forward = camRot.forward;
-        Vector3 dir = horizontal * Vector3.right + vertical * forwd.forward;
+        Vector3 dir = horizontal * forwd.right + vertical * forwd.forward;
         myTr.position += (dir.normalized * moveSpeed * Time.deltaTime);
     }
     public void Attack()
