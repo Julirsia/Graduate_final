@@ -38,7 +38,7 @@ public class PhotonManager : Photon.PunBehaviour
 
         if (PhotonNetwork.isMasterClient)
         {
-            PhotonNetwork.LoadLevel("TestScene");
+            PhotonNetwork.LoadLevel("characterScriptTest");
         }
     }
 

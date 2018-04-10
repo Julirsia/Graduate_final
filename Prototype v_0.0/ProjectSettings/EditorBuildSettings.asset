@@ -11,3 +11,6 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/01.Scenes/TestScene.unity
     guid: 330efbf8cd9d7ea4b9a35bf018f41283
+  - enabled: 1
+    path: Assets/01.Scenes/characterScriptTest.unity
+    guid: 9873297f87e1dc049bde5a8de82f2af3
