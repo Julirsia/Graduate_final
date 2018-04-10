@@ -7,6 +7,17 @@ using UnityEngine;
  */
 public class Actor : MonoBehaviour
 {
+
+    [SerializeField] float m_MovingTurnSpeed = 360;
+    [SerializeField] float m_StationaryTurnSpeed = 180;
+    [SerializeField] float m_RunCycleLegOffset = 0.2f;
+    const float k_Half = 0.5f;
+    bool m_IsGrounded;
+    [SerializeField] float m_AnimSpeedMultiplier = 1f;
+    Vector3 m_GroundNormal;
+    [SerializeField] float m_GroundCheckDistance = 0.1f;
+    [SerializeField] float m_MoveSpeedMultiplier = 1f;
+
     #region input values
     public Transform cameraRotation;
     private float horizontal;
@@ -14,7 +25,7 @@ public class Actor : MonoBehaviour
 
     public float Horizontal
     {
-        get { return horizontal;}
+        get { return horizontal; }
         set { horizontal = value; }
     }
     public float Vertical
@@ -34,13 +45,18 @@ public class Actor : MonoBehaviour
     #region components
     public Animator anim;
     private Transform myTr;
+    float m_ForwardAmount;
+    float m_TurnAmount;
+    Rigidbody m_Rigidbody;
     #endregion
 
     void Start()
     {
+        m_Rigidbody = GetComponent<Rigidbody>();
         anim = GetComponent<Animator>();
         myTr = transform;
         cameraRotation = Camera.main.transform;
+        m_Rigidbody.constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationY | RigidbodyConstraints.FreezeRotationZ;
     }
 
     // Update is called once per frame
@@ -51,17 +67,47 @@ public class Actor : MonoBehaviour
 
     public void Idle()
     {
-        anim.SetBool("IsWalk", false);
-        anim.SetBool("IsAttack", false);
-    }
-    public void Move()
-    {
-        anim.SetBool("IsWalk", true);
 
-        Transform forwd = myTr;
-        forwd.forward = cameraRotation.forward;
-        Vector3 dir = horizontal * forwd.right + vertical * forwd.forward;
-        myTr.position += (dir.normalized * moveSpeed * Time.deltaTime);
+    }
+    public void Move(Vector3 move)
+    {
+
+        if (move.magnitude > 1f) move.Normalize();
+        move = transform.InverseTransformDirection(move);
+
+        move = Vector3.ProjectOnPlane(move, m_GroundNormal);
+        m_TurnAmount = Mathf.Atan2(move.x, move.z);
+        m_ForwardAmount = move.z;
+        ApplyExtraTurnRotation();
+
+
+
+
+
+
+        anim.SetFloat("Forward", m_ForwardAmount, 0.1f, Time.deltaTime);
+        anim.SetFloat("Turn", m_TurnAmount, 0.1f, Time.deltaTime);
+
+        float runCycle =
+                Mathf.Repeat(
+                    anim.GetCurrentAnimatorStateInfo(0).normalizedTime + m_RunCycleLegOffset, 1);
+        float jumpLeg = (runCycle < k_Half ? 1 : -1) * m_ForwardAmount;
+        if (m_IsGrounded)
+        {
+            anim.SetFloat("JumpLeg", jumpLeg);
+        }
+
+
+        if (m_IsGrounded && move.magnitude > 0)
+        {
+            anim.speed = m_AnimSpeedMultiplier;
+        }
+        else
+        {
+
+            anim.speed = 1;
+        }
+
     }
     public void Attack()
     {
@@ -78,5 +124,47 @@ public class Actor : MonoBehaviour
     public void OnDamaged()
     {
         anim.SetTrigger("IsHit");
+    }
+
+    void ApplyExtraTurnRotation()
+    {
+        // 캐릭터가 회전할 때 속도를 보정해 주는 함수
+        float turnSpeed = Mathf.Lerp(m_StationaryTurnSpeed, m_MovingTurnSpeed, m_ForwardAmount);
+        transform.Rotate(0, m_TurnAmount * turnSpeed * Time.deltaTime, 0);
+    }
+
+    public void OnAnimatorMove()
+    {
+        // OnAnimatorMove root모션에 기반하여 움직이는 함수 (공부중)
+
+        {
+            Vector3 v = (anim.deltaPosition * m_MoveSpeedMultiplier) / Time.deltaTime;
+
+
+            v.y = m_Rigidbody.velocity.y;
+            m_Rigidbody.velocity = v;
+        }
+    }
+
+    void CheckGroundStatus()
+    {
+        RaycastHit hitInfo;
+#if UNITY_EDITOR
+
+        Debug.DrawLine(transform.position + (Vector3.up * 0.1f), transform.position + (Vector3.up * 0.1f) + (Vector3.down * m_GroundCheckDistance));
+#endif
+
+        if (Physics.Raycast(transform.position + (Vector3.up * 0.1f), Vector3.down, out hitInfo, m_GroundCheckDistance))
+        {
+            m_GroundNormal = hitInfo.normal;
+            m_IsGrounded = true;
+            anim.applyRootMotion = true;
+        }
+        else
+        {
+            m_IsGrounded = false;
+            m_GroundNormal = Vector3.up;
+            anim.applyRootMotion = false;
+        }
     }
 }

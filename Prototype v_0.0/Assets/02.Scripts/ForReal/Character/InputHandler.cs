@@ -60,8 +60,8 @@ public class InputHandler : MonoBehaviour
 
         if (Input.GetAxis("Horizontal") != 0 || Input.GetAxis("Vertical") != 0)
         {
-            horizInput = Input.GetAxisRaw("Horizontal");
-            vertInput = Input.GetAxisRaw("Vertical");
+            horizInput = Input.GetAxis("Horizontal");
+            vertInput = Input.GetAxis("Vertical");
             pressedBtn = userInput.Move;
         }
         else if (Input.GetKey(KeyCode.Space))
