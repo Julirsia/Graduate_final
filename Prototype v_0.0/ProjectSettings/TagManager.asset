@@ -8,6 +8,8 @@ TagManager:
   - PLAYER
   - Floor
   - Tile
+  - TileParent
+  - FloorParent
   layers:
   - Default
   - TransparentFX

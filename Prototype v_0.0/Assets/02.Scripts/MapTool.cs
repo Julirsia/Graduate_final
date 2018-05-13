@@ -20,4 +20,6 @@ public class MapTool : MonoBehaviour
 
     public GameObject floorPrefab;
     public GameObject selectedTilePrefab;
+
+    public GameObject[] Tiles;
 }

@@ -10,6 +10,7 @@ public class MapToolEditor : Editor
 
     float currTime = 0f;
     public float createTime = 0.2f;
+    public static int selected = 0;
 
     void OnEnable()
     {
@@ -28,6 +29,11 @@ public class MapToolEditor : Editor
             mt.tileY = 1;
         mt.floorPrefab = (GameObject)EditorGUILayout.ObjectField("Floor Tile",mt.floorPrefab, typeof(GameObject));
         mt.selectedTilePrefab = (GameObject)EditorGUILayout.ObjectField("Selected Tile", mt.selectedTilePrefab, typeof(GameObject));
+
+        serializedObject.Update();
+        Show(serializedObject.FindProperty("Tiles"), EditorListOptions.ListSize|EditorListOptions.ListLabel |EditorListOptions.Buttons); 
+        serializedObject.ApplyModifiedProperties();
+
         if (GUILayout.Button("CreateMap")) 
         {
             //Debug.Log("CreateMap Clicked");
@@ -91,7 +97,7 @@ public class MapToolEditor : Editor
     //selectedTilePrefab을 그린다.
     //여러개의 타일을 등록하여 쓸 수 있도록 
     //타일 미리보기 기능?
-    // 마우스를 클릭하ㅕㅁㄴ 그린다
+    // 마우스를 클릭하면 그린다
     void DrawTiles()
     {
         Event e = Event.current; // 현재 발생한 이벤트를 가져올 수 있음
@@ -136,9 +142,11 @@ public class MapToolEditor : Editor
                     }
                     else
                     {
+                        return;
+                        /*
                         GameObject tile = PrefabUtility.InstantiatePrefab(mt.selectedTilePrefab) as GameObject;
                         tile.transform.parent = GameObject.Find("Tiles").transform;
-                        tile.transform.position = hitInfo.transform.position + Vector3.up;
+                        tile.transform.position = hitInfo.transform.position + Vector3.up;*/
                     }
 
 
@@ -168,10 +176,13 @@ public class MapToolEditor : Editor
     //기존 타일이 있으면 날려버림
     void CheckFloorExsist()
     {
-        if (GameObject.FindGameObjectWithTag("Floor"))
-            DestroyImmediate(GameObject.FindGameObjectWithTag("Floor"));
+        if (GameObject.FindGameObjectWithTag("FloorParent"))
+            DestroyImmediate(GameObject.FindGameObjectWithTag("FloorParent"));
+        if (GameObject.FindGameObjectWithTag("TileParent"))
+            DestroyImmediate(GameObject.FindGameObjectWithTag("TileParent"));
 
         GameObject Tiles = new GameObject("Tiles");
+        Tiles.tag = "TileParent";
     }
 
 
@@ -184,5 +195,70 @@ public class MapToolEditor : Editor
         floor.transform.localScale = new Vector3(mt.tileX, 1, mt.tileY);
         floor.transform.position = center;
 
+    }
+
+
+
+    private static GUIContent
+        selectButtonContent = new GUIContent("Select", "Select");
+
+    public void Show(SerializedProperty list, EditorListOptions options = EditorListOptions.Default)
+    {
+        bool
+            showListLabel = (options & EditorListOptions.ListLabel) != 0,
+            showListSize = (options & EditorListOptions.ListSize) != 0;
+
+        if (showListLabel)
+        {
+            EditorGUILayout.PropertyField(list);
+            EditorGUI.indentLevel += 1;
+        }
+        if (!showListLabel || list.isExpanded)
+        {
+            if (showListSize)
+            {
+                EditorGUILayout.PropertyField(list.FindPropertyRelative("Array.size"));
+            }
+            ShowElements(list, options);
+        }
+        if (showListLabel)
+        {
+            EditorGUI.indentLevel -= 1;
+        }
+    }
+    private void ShowElements(SerializedProperty list, EditorListOptions options)
+    {
+        bool
+            showElementLabels = (options & EditorListOptions.ElementLabels) != 0,
+            showButtons = (options & EditorListOptions.Buttons) != 0;
+
+        for (int i = 0; i < list.arraySize; i++)
+        {
+            if (showButtons)
+            {
+                EditorGUILayout.BeginHorizontal();
+            }
+            if (showElementLabels)
+            {
+                EditorGUILayout.PropertyField(list.GetArrayElementAtIndex(i));
+            }
+            else
+            {
+                EditorGUILayout.PropertyField(list.GetArrayElementAtIndex(i), GUIContent.none);
+            }
+            if (showButtons)
+            {
+                ShowButtons(list, i);
+                EditorGUILayout.EndHorizontal();
+            }
+        }
+    }
+
+    private void ShowButtons(SerializedProperty list, int index)
+    {
+        if (GUILayout.Button(selectButtonContent, GUILayout.Width(50f)))
+        {
+           mt.selectedTilePrefab = mt.Tiles[index];
+        }
     }
 }
