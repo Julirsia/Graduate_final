@@ -4,7 +4,7 @@ using UnityEngine;
 
 /*유저의 입력을 받아서 Command를 통해 버튼 입력을 처리 하는 클래스*/
 
-public class InputHandler : MonoBehaviour
+public class InputHandler : Photon.PunBehaviour
 {
     #region command pattern variables
 
@@ -28,6 +28,10 @@ public class InputHandler : MonoBehaviour
     private void Start()
     {
         actor = GetComponent<Actor>();
+        if (!photonView.isMine)
+        {
+            enabled = false;
+        }
     }
 
     void Update()

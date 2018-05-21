@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MoveCommand : ICommand
+public class MoveCommand : Photon.PunBehaviour, ICommand 
 {
      private Vector3 f_move;
 

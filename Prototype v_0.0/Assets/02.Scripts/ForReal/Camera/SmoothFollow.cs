@@ -2,12 +2,12 @@
 
 namespace UnityStandardAssets.Utility
 {
-	public class SmoothFollow : MonoBehaviour
+	public class SmoothFollow : Photon.PunBehaviour
 	{
 
-		// The target we are following
-		[SerializeField]
-		private Transform target;
+        // The target we are following
+        [SerializeField]
+        private Transform target;
 		// The distance in the x-z plane to the target
 		[SerializeField]
 		private float distance = 10.0f;
@@ -22,7 +22,7 @@ namespace UnityStandardAssets.Utility
 
 		// Use this for initialization
 		void Start() { }
-
+        
 		// Update is called once per frame
 		void LateUpdate()
 		{

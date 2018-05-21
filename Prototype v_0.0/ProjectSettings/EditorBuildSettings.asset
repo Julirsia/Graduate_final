@@ -8,7 +8,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Prototype/Photon/Scene/Lobby.unity
     guid: 46ee5f1f20749734c9c11057afd8343f
-  - enabled: 1
+  - enabled: 0
     path: Assets/01.Scenes/TestScene.unity
     guid: 330efbf8cd9d7ea4b9a35bf018f41283
   - enabled: 1

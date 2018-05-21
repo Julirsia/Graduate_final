@@ -5,7 +5,7 @@ using UnityEngine;
 /* 목적 : 게임 캐릭터의 베이스가되는 액터클래스.
  * 역할 : 명령 객체의 지시를 받는 리시버.
  */
-public class Actor : MonoBehaviour
+public class Actor : Photon.PunBehaviour
 {
 
     [SerializeField] float m_MovingTurnSpeed = 360;
@@ -50,13 +50,22 @@ public class Actor : MonoBehaviour
     Rigidbody m_Rigidbody;
     #endregion
 
+    void Awake()
+    {
+
+        m_Rigidbody = GetComponent<Rigidbody>();  // Start에서 Awake로 이동
+        anim = GetComponent<Animator>();
+    }
+
     void Start()
     {
-        m_Rigidbody = GetComponent<Rigidbody>();
-        anim = GetComponent<Animator>();
+
+        
+        
         myTr = transform;
         cameraRotation = Camera.main.transform;
         m_Rigidbody.constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationY | RigidbodyConstraints.FreezeRotationZ;
+       
     }
 
     // Update is called once per frame
