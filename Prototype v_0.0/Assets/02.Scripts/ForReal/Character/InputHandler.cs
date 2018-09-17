@@ -28,9 +28,10 @@ public class InputHandler : Photon.PunBehaviour
     private void Start()
     {
         actor = GetComponent<Actor>();
-        if (!photonView.isMine)
+        //이부분 포톤이랑 연동되면서 무조건 false로 됨
+        //if (!photonView.isMine)
         {
-            enabled = false;
+            //enabled = false;
         }
     }
 

@@ -60,8 +60,6 @@ public class Actor : Photon.PunBehaviour
     void Start()
     {
 
-        
-        
         myTr = transform;
         cameraRotation = Camera.main.transform;
         m_Rigidbody.constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationY | RigidbodyConstraints.FreezeRotationZ;
@@ -89,11 +87,6 @@ public class Actor : Photon.PunBehaviour
         m_ForwardAmount = move.z;
         ApplyExtraTurnRotation();
 
-
-
-
-
-
         anim.SetFloat("Forward", m_ForwardAmount, 0.1f, Time.deltaTime);
         anim.SetFloat("Turn", m_TurnAmount, 0.1f, Time.deltaTime);
 
@@ -113,7 +106,6 @@ public class Actor : Photon.PunBehaviour
         }
         else
         {
-
             anim.speed = 1;
         }
 
