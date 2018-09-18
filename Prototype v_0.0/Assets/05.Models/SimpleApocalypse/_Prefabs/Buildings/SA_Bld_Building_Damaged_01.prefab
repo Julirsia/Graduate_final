@@ -27,6 +27,7 @@ GameObject:
   - component: {fileID: 462432}
   - component: {fileID: 3300978}
   - component: {fileID: 2316900}
+  - component: {fileID: 65618962062906306}
   m_Layer: 0
   m_Name: SA_Bld_Building_Damaged_01
   m_TagString: Untagged
@@ -154,3 +155,15 @@ Prefab:
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 145670}
   m_IsPrefabParent: 1
+--- !u!65 &65618962062906306
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 145670}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 26.32129, y: 20.047194, z: 23.754822}
+  m_Center: {x: -0.06963062, y: 9.105222, z: 2.4023037}

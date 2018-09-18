@@ -10,6 +10,7 @@ TagManager:
   - Tile
   - TileParent
   - FloorParent
+  - Street
   layers:
   - Default
   - TransparentFX

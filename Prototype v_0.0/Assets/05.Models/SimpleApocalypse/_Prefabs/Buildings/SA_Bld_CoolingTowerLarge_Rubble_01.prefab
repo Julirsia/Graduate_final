@@ -10,6 +10,8 @@ GameObject:
   - component: {fileID: 471376}
   - component: {fileID: 3381012}
   - component: {fileID: 2315090}
+  - component: {fileID: 65189373575412536}
+  - component: {fileID: 65021263166365874}
   m_Layer: 0
   m_Name: SA_Bld_CoolingTowerLarge_Rubble_01
   m_TagString: Untagged
@@ -24,7 +26,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 179754}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.1368684e-13, y: 0, z: 0}
+  m_LocalPosition: {x: 12.85, y: 0.57, z: 13.03}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -82,3 +84,27 @@ Prefab:
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 179754}
   m_IsPrefabParent: 1
+--- !u!65 &65021263166365874
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 179754}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 6.9656134, y: 1.3763068, z: 11.449013}
+  m_Center: {x: 3.292007, y: 0.39134097, z: -0.19199276}
+--- !u!65 &65189373575412536
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 179754}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 6.570241, y: 1.4588015, z: 7.9246345}
+  m_Center: {x: -3.4897046, y: 0.3500936, z: -2.3668692}

@@ -34,7 +34,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1269819246824946}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0.5}
+  m_LocalPosition: {x: 3.68, y: 0, z: 0.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -53,12 +53,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tileX: 50
   tileY: 50
-  ShowGrid: 1
+  ShowGrid: 0
   floorPrefab: {fileID: 1416401283424404, guid: a2911970fa91bed4baef92247169384c,
     type: 2}
-  selectedTilePrefab: {fileID: 1298005495336212, guid: 6c110c5936bc7da4889417a67ca4c21a,
+  selectedTilePrefab: {fileID: 1690756819345728, guid: d71c50c742cce0b478c4c64270a05e16,
     type: 2}
   Tiles:
-  - {fileID: 1298005495336212, guid: 9e9b82dd7bc023748a1c112ce63f3b4e, type: 2}
-  - {fileID: 1298005495336212, guid: 2e58e3dcba688cb4596b43c270a504d0, type: 2}
-  - {fileID: 1298005495336212, guid: 6c110c5936bc7da4889417a67ca4c21a, type: 2}
+  - {fileID: 188884, guid: b0a417af8824e3549b412f06549be74a, type: 2}

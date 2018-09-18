@@ -10,9 +10,10 @@ GameObject:
   - component: {fileID: 442140}
   - component: {fileID: 3305158}
   - component: {fileID: 2335586}
+  - component: {fileID: 65071300824445544}
   m_Layer: 0
   m_Name: SA_Bld_Apartment_Damaged_01
-  m_TagString: Untagged
+  m_TagString: Tile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -154,3 +155,15 @@ Prefab:
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 114040}
   m_IsPrefabParent: 1
+--- !u!65 &65071300824445544
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 114040}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 4.4356565, y: 5.716614, z: 4.440257}
+  m_Center: {x: -0.009261847, y: 2.8436017, z: -0.024852514}
