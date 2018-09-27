@@ -7,7 +7,9 @@ using UnityEngine;
  */
 public class Actor : Photon.PunBehaviour
 {
+   
 
+    
     [SerializeField] float m_MovingTurnSpeed = 360;
     [SerializeField] float m_StationaryTurnSpeed = 180;
     [SerializeField] float m_RunCycleLegOffset = 0.2f;
@@ -19,7 +21,7 @@ public class Actor : Photon.PunBehaviour
     [SerializeField] float m_MoveSpeedMultiplier = 1f;
 
     #region input values
-    public Transform cameraRotation;
+    
     private float horizontal;
     private float vertical;
 
@@ -40,6 +42,12 @@ public class Actor : Photon.PunBehaviour
 
     public float moveSpeed;
     public float jumpSpeed;
+    float yaw;
+    float pitch;
+    float mouseSensitivity = 10;
+    public float rotationSmoothTime = .12f;
+    Vector3 currentRotation;
+    Vector3 rotationSmoothVelocity;
     #endregion
 
     #region components
@@ -48,6 +56,8 @@ public class Actor : Photon.PunBehaviour
     float m_ForwardAmount;
     float m_TurnAmount;
     Rigidbody m_Rigidbody;
+    Vector2 mouseInput;
+    InputHandler playerInput;
     #endregion
 
     void Awake()
@@ -55,6 +65,7 @@ public class Actor : Photon.PunBehaviour
 
         m_Rigidbody = GetComponent<Rigidbody>();  // Start에서 Awake로 이동
         anim = GetComponent<Animator>();
+        
     }
 
     void Start()
@@ -63,7 +74,7 @@ public class Actor : Photon.PunBehaviour
         
         
         myTr = transform;
-        cameraRotation = Camera.main.transform;
+       
         m_Rigidbody.constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationY | RigidbodyConstraints.FreezeRotationZ;
        
     }
@@ -71,7 +82,17 @@ public class Actor : Photon.PunBehaviour
     // Update is called once per frame
     void Update()
     {
+        
+        
+    }
 
+    void LateUpdate()
+    {
+        yaw += mouseInput.x * mouseSensitivity;
+        pitch -= mouseInput.y * mouseSensitivity;
+
+        currentRotation = Vector3.SmoothDamp(currentRotation, new Vector3(pitch, yaw), ref rotationSmoothVelocity, rotationSmoothTime);
+        //transform.eulerAngles = currentRotation;
     }
 
     public void Idle()
@@ -86,6 +107,7 @@ public class Actor : Photon.PunBehaviour
 
         move = Vector3.ProjectOnPlane(move, m_GroundNormal);
         m_TurnAmount = Mathf.Atan2(move.x, move.z);
+       // m_TurnAmount = Mathf.Atan2(yaw, move.z);
         m_ForwardAmount = move.z;
         ApplyExtraTurnRotation();
 

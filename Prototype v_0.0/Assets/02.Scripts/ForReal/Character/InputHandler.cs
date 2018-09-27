@@ -22,6 +22,7 @@ public class InputHandler : Photon.PunBehaviour
 
     private float horizInput= 0f;
     private float vertInput= 0f;
+    public Vector2 MouseInput;
     #endregion
 
     
@@ -36,6 +37,7 @@ public class InputHandler : Photon.PunBehaviour
 
     void Update()
     {
+        MouseInput = new Vector2(Input.GetAxisRaw("Mouse X"), Input.GetAxisRaw("Mouse Y"));
         command = GetCommand();
         command.Execute(actor);
     }
