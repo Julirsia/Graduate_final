@@ -19,7 +19,7 @@ public class InputHandler : Photon.PunBehaviour
 
     #region input values
     public Transform camRotation;
-
+    public int m_PlayerNumber = 1;
     private float horizInput= 0f;
     private float vertInput= 0f;
     public Vector2 MouseInput;
@@ -29,6 +29,7 @@ public class InputHandler : Photon.PunBehaviour
     private void Start()
     {
         actor = GetComponent<Actor>();
+        //이부분 포톤이랑 연동되면서 무조건 false로 됨
         if (!photonView.isMine)
         {
             enabled = false;

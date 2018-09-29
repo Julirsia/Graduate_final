@@ -14,6 +14,7 @@ public class Actor : Photon.PunBehaviour
     [SerializeField] float m_StationaryTurnSpeed = 180;
     [SerializeField] float m_RunCycleLegOffset = 0.2f;
     const float k_Half = 0.5f;
+    public int m_PlayerNumber = 1;
     bool m_IsGrounded;
     [SerializeField] float m_AnimSpeedMultiplier = 1f;
     Vector3 m_GroundNormal;
@@ -71,8 +72,6 @@ public class Actor : Photon.PunBehaviour
     void Start()
     {
 
-        
-        
         myTr = transform;
        
         m_Rigidbody.constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationY | RigidbodyConstraints.FreezeRotationZ;
@@ -111,11 +110,6 @@ public class Actor : Photon.PunBehaviour
         m_ForwardAmount = move.z;
         ApplyExtraTurnRotation();
 
-
-
-
-
-
         anim.SetFloat("Forward", m_ForwardAmount, 0.1f, Time.deltaTime);
         anim.SetFloat("Turn", m_TurnAmount, 0.1f, Time.deltaTime);
 
@@ -135,7 +129,6 @@ public class Actor : Photon.PunBehaviour
         }
         else
         {
-
             anim.speed = 1;
         }
 

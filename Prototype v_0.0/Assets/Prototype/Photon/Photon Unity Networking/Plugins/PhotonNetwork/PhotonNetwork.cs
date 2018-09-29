@@ -45,6 +45,11 @@ public static class PhotonNetwork
     /// </summary>
     internal static NetworkingPeer networkingPeer;
 
+    internal static Rigidbody Instantiate(Rigidbody m_Shell, Vector3 position, Quaternion rotation)
+    {
+        throw new NotImplementedException();
+    }
+
     /// <summary>
     /// The maximum number of assigned PhotonViews <i>per player</i> (or scene). See the [General Documentation](@ref general) topic "Limitations" on how to raise this limitation.
     /// </summary>

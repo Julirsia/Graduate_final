@@ -42,4 +42,8 @@ MonoBehaviour:
   - RequestForPickupItems
   - RequestForPickupTimes
   - TaggedPlayer
+  - FireOther
+  - Chop
+  - ClientbyMaster
+  - MasterGameStart
   DisableAutoOpenWizard: 1

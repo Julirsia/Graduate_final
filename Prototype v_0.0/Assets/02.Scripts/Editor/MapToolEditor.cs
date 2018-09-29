@@ -123,7 +123,7 @@ public class MapToolEditor : Editor
 
             if (Physics.Raycast(ray, out hitInfo))
             {
-                if (hitInfo.transform.tag == "Tile")
+                if (hitInfo.transform.tag == "Tile" )
                 {
                     RaycastHit hit;
                     while (true)
@@ -141,16 +141,9 @@ public class MapToolEditor : Editor
                         DestroyImmediate(hitInfo.transform.gameObject);
                     }
                     else
-                    {
                         return;
-                        /*
-                        GameObject tile = PrefabUtility.InstantiatePrefab(mt.selectedTilePrefab) as GameObject;
-                        tile.transform.parent = GameObject.Find("Tiles").transform;
-                        tile.transform.position = hitInfo.transform.position + Vector3.up;*/
-                    }
-
-
                 }
+                
                 else if (hitInfo.transform.tag == "Floor")
                 {
                     if (e.shift)
