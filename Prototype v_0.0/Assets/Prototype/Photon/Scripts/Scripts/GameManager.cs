@@ -14,7 +14,8 @@ namespace Complete {
         public float m_StartDelay = 3f;             // The delay between the start of RoundStarting and RoundPlaying phases.
         public float m_EndDelay = 3f;
         bool flag = false;// The delay between the end of RoundPlaying and RoundEnding phases.
-                                                    //  public CameraControl m_CameraControl; 
+                          //  public CameraControl m_CameraControl; 
+        public CameraControl m_CameraControl;
         public GameObject Player;                   // Reference to the CameraControl script for control during different phases.
         public Text m_MessageText;                  // Reference to the overlay Text to display winning text, etc.
         public GameObject m_TankPrefab;             // Reference to the prefab the players will control.
@@ -42,6 +43,7 @@ namespace Complete {
             // Create the delays so they only have to be made once.
             m_StartWait = new WaitForSeconds(m_StartDelay);
             m_EndWait = new WaitForSeconds(m_EndDelay);
+           // gameObject.GetComponent<CameraControl>().enabled = false;
 
 
 
@@ -61,7 +63,7 @@ namespace Complete {
 
             else {
                 SpawnTank2();
-               
+                
 
                 //StartCoroutine(GameLoop());
 
@@ -179,29 +181,52 @@ namespace Complete {
         }
 
 
-      /*  private void SetCameraTargets()
+        public void SetCameraTargets()
         {
             // Create a collection of transforms the same size as the number of tanks.
-            Transform[] targets = new Transform[m_Players.Length];
+            Transform[] targets = new Transform[2];
 
             // For each of these transforms...
-            for (int i = 0; i < targets.Length; i++)
+
+            // ... set it to the appropriate tank transform.
+
+            if (PhotonNetwork.isMasterClient)
             {
-                // ... set it to the appropriate tank transform.
-                targets[i] = m_Players[i].m_Instance.transform;
+                targets[0] = PhotonView.Find(1001).gameObject.transform;
+                targets[1] = spawnpoint[1].m_SpawnPoint;
+
             }
+            else
+            {
+                targets[0] = PhotonView.Find(2001).gameObject.transform;
+                targets[1] = spawnpoint[0].m_SpawnPoint;
+            }
+
+            // targets[1] = PhotonView.Find(2001).gameObject.transform;
+          //  targets[1] = spawnpoint[1].m_SpawnPoint.transform;
+
+            // m_CameraControl.m_Targets[1] = PhotonView.Find(2001).gameObject.transform;
 
             // These are the targets the camera should follow.
             m_CameraControl.m_Targets = targets;
-        }*/
+        }
+
+        public void SetEnemyCameraTargets()
+        {
+            m_CameraControl.m_Targets[1] = PhotonView.Find(2001).gameObject.transform;
+        }
 
 
         // This is called from start and will run each phase of the game one after another.
         private IEnumerator GameLoop()
         {
             // Start off by running the 'RoundStarting' coroutine but don't return until it's finished.
-        
-             yield return StartCoroutine(RoundStarting());
+
+            GameObject.Find("CameraRig").GetComponent<CameraControl>().enabled = true;
+
+            
+
+            yield return StartCoroutine(RoundStarting());
 
             // Once the 'RoundStarting' coroutine is finished, run the 'RoundPlaying' coroutine but don't return until it's finished.
             yield return StartCoroutine(RoundPlaying());
@@ -226,14 +251,27 @@ namespace Complete {
             }
         }
         // 게임시작시 설정사항
+
+     /*   private IEnumerator RoundSetting()
+        {
+            GameObject.Find("CameraRig").GetComponent<CameraControl>().enabled = true;
+            yield return null;
+        } */
+
         private IEnumerator RoundStarting()
         {
+
+            
             // As soon as the round starts reset the tanks and make sure they can't move.
             ResetAllTanks();
             DisableTankControl();
 
+            //  Invoke("SetCameraTargets", 2);
+            
+            SetCameraTargets();
+            
             // Snap the camera's zoom and position to something appropriate for the reset tanks.
-         //   m_CameraControl.SetStartPositionAndSize();
+            m_CameraControl.SetStartPositionAndSize();
 
             // Increment the round number and display text showing the players what round it is.
             m_RoundNumber++;
@@ -248,7 +286,7 @@ namespace Complete {
         {
             // As soon as the round begins playing let the players control the tanks.
             EnableTankControl();
-
+           // SetEnemyCameraTargets();
             // Clear the text from the screen.
             m_MessageText.text = string.Empty;
 
@@ -491,8 +529,11 @@ namespace Complete {
         void Update () {
             if (PhotonNetwork.playerList.Length > 1 && !flag)
             {
+
                 flag = true;
+                
                 StartCoroutine(GameLoop());
+                
             }
             else
             {
