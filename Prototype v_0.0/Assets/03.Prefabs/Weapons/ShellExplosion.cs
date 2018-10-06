@@ -3,7 +3,8 @@
 public class ShellExplosion : Photon.PunBehaviour
 {
     public LayerMask m_TankMask;
-    public ParticleSystem m_ExplosionParticles;       
+    public ParticleSystem m_ExplosionParticles;
+    public GameObject explosion;
  //   public AudioSource m_ExplosionAudio;              
     public float m_MaxDamage = 100f;                  
     public float m_ExplosionForce = 1000f;            
@@ -39,14 +40,15 @@ public class ShellExplosion : Photon.PunBehaviour
 
             targetHealth.TakeDamage(damage);
         }
-
+        Instantiate(explosion, transform.position, transform.rotation);
         m_ExplosionParticles.transform.parent = null;
 
         m_ExplosionParticles.Play();
 
-       // m_ExplosionAudio.Play();
+        //m_ExplosionAudio.Play();
 
-     //   Destroy(m_ExplosionParticles.gameObject, m_ExplosionParticles.duration);
+        //Destroy(m_ExplosionParticles.gameObject, m_ExplosionParticles.duration);
+       // Destroy(explosion);
         Destroy(gameObject);
         // Find all the tanks in an area around the shell and damage them.
     }
