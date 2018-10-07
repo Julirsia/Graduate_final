@@ -30,10 +30,11 @@ public class InputHandler : Photon.PunBehaviour
     {
         actor = GetComponent<Actor>();
         //이부분 포톤이랑 연동되면서 무조건 false로 됨
+        /*
         if (!photonView.isMine)
         {
             enabled = false;
-        }
+        }*/
     }
 
     void Update()

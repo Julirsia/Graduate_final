@@ -26,6 +26,9 @@ GameObject:
   - component: {fileID: 135376451765643190}
   - component: {fileID: 54299949692679594}
   - component: {fileID: 114249332493951496}
+  - component: {fileID: 114281770703971354}
+  - component: {fileID: 114250824392966310}
+  - component: {fileID: 114371544147208686}
   m_Layer: 0
   m_Name: MainCamera
   m_TagString: MainCamera
@@ -70,7 +73,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1922822823709838}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 9.21, y: -1.29, z: 76.5}
+  m_LocalPosition: {x: 26, y: -1.29, z: 89.649994}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4543082315820518}
@@ -83,8 +86,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1134414044003780}
-  m_LocalRotation: {x: 0.073352955, y: -0.02153833, z: 0.0015845391, w: 0.9970722}
-  m_LocalPosition: {x: -9.111353, y: 3.990339, z: -88.39161}
+  m_LocalRotation: {x: 0.067922086, y: -0.021546695, z: 0.0014672278, w: 0.99745685}
+  m_LocalPosition: {x: -14.501352, y: 3.990339, z: -89.5916}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4543082315820518}
@@ -113,7 +116,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 1
-  m_BackGroundColor: {r: 0.24705884, g: 0.34901962, b: 0.2392157, a: 0}
+  m_BackGroundColor: {r: 0.036206897, g: 0, b: 0.30882353, a: 0}
   m_NormalizedViewPortRect:
     serializedVersion: 2
     x: 0
@@ -181,10 +184,57 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 0}
-  distance: 9
+  distance: 5
   height: 5
   rotationDamping: 0
   heightDamping: 0
+--- !u!114 &114250824392966310
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1134414044003780}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6f19108706fdce9469603d07980eb8ad, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  blendMode: 3
+  intensity: 0.21
+  texture: {fileID: 2800000, guid: 5d3e42fe04a52724181f58f77a5b6227, type: 3}
+  overlayShader: {fileID: 4800000, guid: 8c81db0e527d24acc9bcec04e87781bd, type: 3}
+--- !u!114 &114281770703971354
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1134414044003780}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6f19108706fdce9469603d07980eb8ad, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  blendMode: 3
+  intensity: 0.04
+  texture: {fileID: 2800000, guid: fac5374fa6d96af4eb5945b3b16adaca, type: 3}
+  overlayShader: {fileID: 4800000, guid: 8c81db0e527d24acc9bcec04e87781bd, type: 3}
+--- !u!114 &114371544147208686
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1134414044003780}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 891e8259f6ee2194aa83191ab7cf7514, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lockCursor: 0
+  mouseSensitivity: 10
+  vertMinMax: {x: -40, y: 85}
+  rotSmoothTime: 0.12
+  distFromTarget: 2
+  target: {fileID: 0}
 --- !u!124 &124375925820946346
 Behaviour:
   m_ObjectHideFlags: 1

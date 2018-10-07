@@ -6,10 +6,7 @@ using UnityEngine;
  * 역할 : 명령 객체의 지시를 받는 리시버.
  */
 public class Actor : Photon.PunBehaviour
-{
-   
-
-    
+{   
     [SerializeField] float m_MovingTurnSpeed = 360;
     [SerializeField] float m_StationaryTurnSpeed = 180;
     [SerializeField] float m_RunCycleLegOffset = 0.2f;
@@ -87,21 +84,22 @@ public class Actor : Photon.PunBehaviour
 
     void LateUpdate()
     {
+        /*
         yaw += mouseInput.x * mouseSensitivity;
         pitch -= mouseInput.y * mouseSensitivity;
 
         currentRotation = Vector3.SmoothDamp(currentRotation, new Vector3(pitch, yaw), ref rotationSmoothVelocity, rotationSmoothTime);
-        //transform.eulerAngles = currentRotation;
+        //transform.eulerAngles = currentRotation;*/
     }
 
     public void Idle()
     {
-
+        m_Rigidbody.velocity = Vector3.zero;
     }
     public void Move(Vector3 move)
     {
-
-        if (move.magnitude > 1f) move.Normalize();
+        if (move.magnitude > 1f)
+            move.Normalize();
         move = transform.InverseTransformDirection(move);
 
         move = Vector3.ProjectOnPlane(move, m_GroundNormal);
