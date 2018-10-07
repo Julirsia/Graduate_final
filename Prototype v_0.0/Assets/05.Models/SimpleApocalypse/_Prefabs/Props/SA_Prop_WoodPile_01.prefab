@@ -10,6 +10,7 @@ GameObject:
   - component: {fileID: 482920}
   - component: {fileID: 3383632}
   - component: {fileID: 2333390}
+  - component: {fileID: 65693513689931804}
   m_Layer: 0
   m_Name: SA_Prop_WoodPile_01
   m_TagString: Untagged
@@ -24,7 +25,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 104730}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 98.32369, y: 0.20000002, z: 174.86716}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -82,3 +83,15 @@ Prefab:
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 104730}
   m_IsPrefabParent: 1
+--- !u!65 &65693513689931804
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 104730}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 4.5563736, y: 0.9688386, z: 1.3974724}
+  m_Center: {x: 0, y: 0.4844193, z: -0.0000019073486}

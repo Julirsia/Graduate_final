@@ -10,6 +10,7 @@ GameObject:
   - component: {fileID: 430340}
   - component: {fileID: 3320912}
   - component: {fileID: 2396438}
+  - component: {fileID: 65103098922262856}
   m_Layer: 0
   m_Name: SA_Env_RoadStraight_Damaged_06
   m_TagString: Street
@@ -24,7 +25,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 150242}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 25.1, y: 0.2, z: 37.8}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -82,3 +83,15 @@ Prefab:
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 150242}
   m_IsPrefabParent: 1
+--- !u!65 &65103098922262856
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 150242}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 5.9999723, y: 0.1168775, z: 11.999999}
+  m_Center: {x: 2.9999862, y: -0.05843873, z: -5.9999995}

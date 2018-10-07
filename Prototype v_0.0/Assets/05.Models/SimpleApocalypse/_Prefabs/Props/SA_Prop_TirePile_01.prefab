@@ -10,6 +10,7 @@ GameObject:
   - component: {fileID: 478228}
   - component: {fileID: 3366726}
   - component: {fileID: 2365260}
+  - component: {fileID: 136048919578781006}
   m_Layer: 0
   m_Name: SA_Prop_TirePile_01
   m_TagString: Untagged
@@ -24,7 +25,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 192834}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 115.98211, y: 0.20391603, z: 194.82375}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -82,3 +83,16 @@ Prefab:
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 192834}
   m_IsPrefabParent: 1
+--- !u!136 &136048919578781006
+CapsuleCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 192834}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.307724
+  m_Height: 0.16398373
+  m_Direction: 1
+  m_Center: {x: 0.0000026673079, y: 0.078075856, z: 0}

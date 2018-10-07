@@ -10,6 +10,7 @@ GameObject:
   - component: {fileID: 441334}
   - component: {fileID: 3366882}
   - component: {fileID: 2316244}
+  - component: {fileID: 65972517561359994}
   m_Layer: 0
   m_Name: SA_Prop_BurntBrown_Car_01
   m_TagString: Untagged
@@ -24,7 +25,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 185556}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 111.16144, y: 0.20000002, z: 132.9064}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -82,3 +83,15 @@ Prefab:
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 185556}
   m_IsPrefabParent: 1
+--- !u!65 &65972517561359994
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 185556}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2.7828178, y: 2.405266, z: 5.881771}
+  m_Center: {x: 0.0000019073486, y: 1.202633, z: 0.0000019073486}

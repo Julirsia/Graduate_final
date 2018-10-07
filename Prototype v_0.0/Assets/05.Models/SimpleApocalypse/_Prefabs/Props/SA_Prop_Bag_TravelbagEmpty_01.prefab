@@ -27,6 +27,7 @@ GameObject:
   - component: {fileID: 429634}
   - component: {fileID: 3342604}
   - component: {fileID: 2338536}
+  - component: {fileID: 65808271671634602}
   m_Layer: 0
   m_Name: SA_Prop_Bag_TravelbagEmpty_01
   m_TagString: Untagged
@@ -41,7 +42,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 138062}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 61.24689, y: 0.20000002, z: 100.0319}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 468526}
@@ -154,3 +155,15 @@ Prefab:
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 138062}
   m_IsPrefabParent: 1
+--- !u!65 &65808271671634602
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 138062}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 0.61781895, z: 2.020317}
+  m_Center: {x: 0, y: 0.30890948, z: 0}

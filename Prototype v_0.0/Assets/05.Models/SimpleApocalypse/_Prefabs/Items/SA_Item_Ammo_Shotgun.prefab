@@ -10,6 +10,7 @@ GameObject:
   - component: {fileID: 429614}
   - component: {fileID: 3341584}
   - component: {fileID: 2302520}
+  - component: {fileID: 65076768542569076}
   m_Layer: 0
   m_Name: SA_Item_Ammo_Shotgun
   m_TagString: Untagged
@@ -24,7 +25,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 128406}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 37.654533, y: 0.43021235, z: 11.246774}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -82,3 +83,15 @@ Prefab:
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 128406}
   m_IsPrefabParent: 1
+--- !u!65 &65076768542569076
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 128406}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.45603102, y: 0.19091004, z: 0.41814077}
+  m_Center: {x: -0.0000011399388, y: 0.09545502, z: 0}

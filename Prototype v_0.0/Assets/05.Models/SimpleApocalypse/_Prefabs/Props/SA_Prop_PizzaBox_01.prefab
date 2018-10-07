@@ -10,6 +10,7 @@ GameObject:
   - component: {fileID: 413522}
   - component: {fileID: 3361194}
   - component: {fileID: 2333038}
+  - component: {fileID: 65532707707758166}
   m_Layer: 0
   m_Name: SA_Prop_PizzaBox_01
   m_TagString: Untagged
@@ -24,7 +25,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 110702}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 72.3028, y: 0.20000002, z: 128.67445}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -82,3 +83,15 @@ Prefab:
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 110702}
   m_IsPrefabParent: 1
+--- !u!65 &65532707707758166
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 110702}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.55752957, y: 0.16509953, z: 0.5561096}
+  m_Center: {x: 0, y: 0.08498807, z: 0}

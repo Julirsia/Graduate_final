@@ -27,6 +27,7 @@ GameObject:
   - component: {fileID: 415498}
   - component: {fileID: 3388646}
   - component: {fileID: 2379590}
+  - component: {fileID: 65853757151180132}
   m_Layer: 0
   m_Name: SA_Veh_MonsterTruck
   m_TagString: Untagged
@@ -122,7 +123,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 108358}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 176.67447, y: 0.20000005, z: 180.09085}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 421808}
@@ -442,3 +443,15 @@ Prefab:
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 108358}
   m_IsPrefabParent: 1
+--- !u!65 &65853757151180132
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 108358}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2.8414695, y: 2.205365, z: 5.433488}
+  m_Center: {x: -0.002149582, y: 1.6386698, z: -0.348423}

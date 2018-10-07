@@ -95,6 +95,7 @@ GameObject:
   - component: {fileID: 415598}
   - component: {fileID: 3359590}
   - component: {fileID: 2389350}
+  - component: {fileID: 65821655724938220}
   m_Layer: 0
   m_Name: SA_Veh_Schoolbus
   m_TagString: Untagged
@@ -109,7 +110,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 187360}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 87.300156, y: 0.20000002, z: 125.05184}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 470674}
@@ -442,3 +443,15 @@ Prefab:
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 187360}
   m_IsPrefabParent: 1
+--- !u!65 &65821655724938220
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 187360}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2.615688, y: 2.2172961, z: 7.5074053}
+  m_Center: {x: 0, y: 1.3816721, z: -0.31809008}

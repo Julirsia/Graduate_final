@@ -10,6 +10,7 @@ GameObject:
   - component: {fileID: 489396}
   - component: {fileID: 3390490}
   - component: {fileID: 2356206}
+  - component: {fileID: 65590302934656820}
   m_Layer: 0
   m_Name: SA_Prop_TreeStump_01
   m_TagString: Untagged
@@ -24,7 +25,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 106028}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 77.19029, y: 0.2540215, z: 72.43155}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -82,3 +83,15 @@ Prefab:
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 106028}
   m_IsPrefabParent: 1
+--- !u!65 &65590302934656820
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 106028}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.7347313, y: 1.1769481, z: 1.8438152}
+  m_Center: {x: 0, y: 0.55065894, z: 0.0000013113022}

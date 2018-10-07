@@ -10,6 +10,7 @@ GameObject:
   - component: {fileID: 422112}
   - component: {fileID: 3317236}
   - component: {fileID: 2366296}
+  - component: {fileID: 65099684405173738}
   m_Layer: 0
   m_Name: SA_Env_ForestTile_01
   m_TagString: Untagged
@@ -24,7 +25,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 158148}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 10.8, y: 0.44235525, z: 27.1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -82,3 +83,15 @@ Prefab:
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 158148}
   m_IsPrefabParent: 1
+--- !u!65 &65099684405173738
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 158148}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 8.69806, y: 6.347417, z: 7.778097}
+  m_Center: {x: -5.7441916, y: 2.9798245, z: -5.794362}

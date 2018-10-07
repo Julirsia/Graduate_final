@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 3377186}
   - component: {fileID: 2367902}
   - component: {fileID: 6495046}
+  - component: {fileID: 65651274219718834}
   m_Layer: 0
   m_Name: CoffeTable
   m_TagString: Untagged
@@ -25,7 +26,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 178792}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 12.2771225, y: 0.20000002, z: 95.92093}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -109,3 +110,15 @@ Prefab:
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 178792}
   m_IsPrefabParent: 1
+--- !u!65 &65651274219718834
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 178792}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.5000012, y: 0.9987188, z: 1.5000012}
+  m_Center: {x: -0.00000059604645, y: 0.4993594, z: 0.00000059604645}

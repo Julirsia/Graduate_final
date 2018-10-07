@@ -78,6 +78,7 @@ GameObject:
   - component: {fileID: 425826}
   - component: {fileID: 3310868}
   - component: {fileID: 2358796}
+  - component: {fileID: 65364831424157472}
   m_Layer: 0
   m_Name: SA_Veh_Troopcar
   m_TagString: Untagged
@@ -139,7 +140,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 155732}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 179.61304, y: 0.20000012, z: 157.788}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 459712}
@@ -514,3 +515,15 @@ Prefab:
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 155732}
   m_IsPrefabParent: 1
+--- !u!65 &65364831424157472
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 155732}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 3.9770584, y: 4.20033, z: 7.394201}
+  m_Center: {x: 0.0000038146973, y: 2.716691, z: -0.08409333}

@@ -44,6 +44,7 @@ GameObject:
   - component: {fileID: 415616}
   - component: {fileID: 3390140}
   - component: {fileID: 2395724}
+  - component: {fileID: 65773482189783160}
   m_Layer: 0
   m_Name: SA_Bld_Motel_SideBuilding_Damaged_01
   m_TagString: Untagged
@@ -57,15 +58,15 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 156482}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: 0, y: 0.7071068, z: -0, w: -0.7071068}
+  m_LocalPosition: {x: 132.2, y: 0.15518111, z: 131.1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 432482}
   - {fileID: 478912}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 270, z: 0}
 --- !u!4 &432482
 Transform:
   m_ObjectHideFlags: 1
@@ -226,3 +227,15 @@ Prefab:
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 156482}
   m_IsPrefabParent: 1
+--- !u!65 &65773482189783160
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 156482}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 33.35892, y: 4.8085313, z: 8.9131975}
+  m_Center: {x: -0.14565852, y: 2.4042652, z: 0.6822348}

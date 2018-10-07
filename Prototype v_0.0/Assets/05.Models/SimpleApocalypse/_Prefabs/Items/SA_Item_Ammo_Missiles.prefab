@@ -10,6 +10,7 @@ GameObject:
   - component: {fileID: 451520}
   - component: {fileID: 3334722}
   - component: {fileID: 2361048}
+  - component: {fileID: 65420995090115048}
   m_Layer: 0
   m_Name: SA_Item_Ammo_Missiles
   m_TagString: Untagged
@@ -24,7 +25,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 125468}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 36.57, y: 0.19999976, z: 10.8}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -82,3 +83,15 @@ Prefab:
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 125468}
   m_IsPrefabParent: 1
+--- !u!65 &65420995090115048
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 125468}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.4807291, y: 0.4179021, z: 1.2000027}
+  m_Center: {x: 0.00000047683716, y: 0.20895106, z: 0}

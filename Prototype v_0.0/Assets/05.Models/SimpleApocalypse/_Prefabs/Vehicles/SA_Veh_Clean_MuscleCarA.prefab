@@ -10,6 +10,7 @@ GameObject:
   - component: {fileID: 425714}
   - component: {fileID: 3383956}
   - component: {fileID: 2385428}
+  - component: {fileID: 65614298774824832}
   m_Layer: 0
   m_Name: SA_Veh_Clean_MuscleCarA
   m_TagString: Untagged
@@ -91,8 +92,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 111618}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: -0, y: -0.7152287, z: -0, w: 0.6988906}
+  m_LocalPosition: {x: 5.785575, y: 0.20000002, z: 78.93884}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 470746}
@@ -101,7 +102,7 @@ Transform:
   - {fileID: 453340}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -91.324005, z: 0}
 --- !u!4 &453340
 Transform:
   m_ObjectHideFlags: 1
@@ -370,3 +371,15 @@ Prefab:
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 111618}
   m_IsPrefabParent: 1
+--- !u!65 &65614298774824832
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 111618}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2.328281, y: 1.4457107, z: 5.3722296}
+  m_Center: {x: 0, y: 0.94104576, z: 0}

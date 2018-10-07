@@ -10,6 +10,7 @@ GameObject:
   - component: {fileID: 419788}
   - component: {fileID: 3324916}
   - component: {fileID: 2322508}
+  - component: {fileID: 65492027594339042}
   m_Layer: 0
   m_Name: SA_Prop_Mattress_01
   m_TagString: Untagged
@@ -24,7 +25,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 182532}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 149.56764, y: 0.20000002, z: 182.73918}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -82,3 +83,15 @@ Prefab:
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 182532}
   m_IsPrefabParent: 1
+--- !u!65 &65492027594339042
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 182532}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.4350449, y: 0.22662535, z: 2.5936186}
+  m_Center: {x: 0, y: 0.11419949, z: 0}

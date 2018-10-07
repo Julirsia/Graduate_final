@@ -44,6 +44,8 @@ GameObject:
   - component: {fileID: 464564}
   - component: {fileID: 3327128}
   - component: {fileID: 2328882}
+  - component: {fileID: 65263127443905692}
+  - component: {fileID: 65894316934815412}
   m_Layer: 0
   m_Name: SA_Bld_Mall_Damaged_01
   m_TagString: Untagged
@@ -57,15 +59,15 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 159456}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: 0, y: 0.7071068, z: -0, w: -0.7071068}
+  m_LocalPosition: {x: 121.7, y: 0.47469097, z: 31.2}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 480892}
   - {fileID: 476580}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 270, z: 0}
 --- !u!4 &476580
 Transform:
   m_ObjectHideFlags: 1
@@ -226,3 +228,27 @@ Prefab:
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 159456}
   m_IsPrefabParent: 1
+--- !u!65 &65263127443905692
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 159456}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 30.231583, y: 4.9443965, z: 7.955139}
+  m_Center: {x: -13.953323, y: 2.472192, z: 21.591503}
+--- !u!65 &65894316934815412
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 159456}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 7.861864, y: 4.9443965, z: 18.279743}
+  m_Center: {x: -25.138186, y: 2.472192, z: 8.112244}

@@ -10,6 +10,7 @@ GameObject:
   - component: {fileID: 485724}
   - component: {fileID: 3390610}
   - component: {fileID: 2377298}
+  - component: {fileID: 65849735546844166}
   m_Layer: 0
   m_Name: SA_Prop_BodyBag_06
   m_TagString: Untagged
@@ -24,7 +25,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 197078}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 15.008236, y: 0.20000002, z: 41.123325}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -82,3 +83,15 @@ Prefab:
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 197078}
   m_IsPrefabParent: 1
+--- !u!65 &65849735546844166
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 197078}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.9112625, y: 0.3630256, z: 2.191492}
+  m_Center: {x: 0, y: 0.18151286, z: 0}

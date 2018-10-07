@@ -5,11 +5,12 @@ OcclusionCullingSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_OcclusionBakeSettings:
-    smallestOccluder: 5
-    smallestHole: 0.25
-    backfaceThreshold: 100
-  m_SceneGUID: 00000000000000000000000000000000
-  m_OcclusionCullingData: {fileID: 0}
+    smallestOccluder: 1
+    smallestHole: 0.1
+    backfaceThreshold: 50
+  m_SceneGUID: 20b83be5f327faa4d861bf79ce030ac0
+  m_OcclusionCullingData: {fileID: 36300000, guid: 3854c23775605f94d93e855b07eeec49,
+    type: 2}
 --- !u!104 &2
 RenderSettings:
   m_ObjectHideFlags: 0
@@ -410,6 +411,11 @@ Prefab:
       propertyPath: target
       value: 
       objectReference: {fileID: 1130337392}
+    - target: {fileID: 114371544147208686, guid: af14041239b3c9e408b0086176d1b54f,
+        type: 2}
+      propertyPath: distFromTarget
+      value: 5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: af14041239b3c9e408b0086176d1b54f, type: 2}
   m_IsPrefabParent: 0
@@ -2518,7 +2524,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1454126995}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 11.11, y: 0, z: 9.05}
+  m_LocalPosition: {x: 11.11, y: 0.79, z: 9.05}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 883798141}

@@ -27,6 +27,7 @@ GameObject:
   - component: {fileID: 454464}
   - component: {fileID: 3383092}
   - component: {fileID: 2347756}
+  - component: {fileID: 65688000057141470}
   m_Layer: 0
   m_Name: SA_Bld_TrailerRV_Damaged_03
   m_TagString: Untagged
@@ -41,7 +42,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 157260}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0, y: -8.6736174e-19, z: -2.842171e-14}
+  m_LocalPosition: {x: 168.58, y: 0.26095852, z: 101.06}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 467062}
@@ -154,3 +155,15 @@ Prefab:
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 157260}
   m_IsPrefabParent: 1
+--- !u!65 &65688000057141470
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 157260}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 3.7962887, y: 3.4664102, z: 7.5290403}
+  m_Center: {x: 0.00044822693, y: 1.6722467, z: -0.0000015497208}

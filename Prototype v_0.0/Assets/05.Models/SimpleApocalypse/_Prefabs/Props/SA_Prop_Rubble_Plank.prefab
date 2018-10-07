@@ -10,6 +10,7 @@ GameObject:
   - component: {fileID: 424990}
   - component: {fileID: 3313908}
   - component: {fileID: 2343174}
+  - component: {fileID: 65267469591598338}
   m_Layer: 0
   m_Name: SA_Prop_Rubble_Plank
   m_TagString: Untagged
@@ -24,7 +25,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 185604}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 124.117615, y: 0.5238351, z: 146.55992}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -82,3 +83,15 @@ Prefab:
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 185604}
   m_IsPrefabParent: 1
+--- !u!65 &65267469591598338
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 185604}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 3.03518, y: 0.45799875, z: 0.45799875}
+  m_Center: {x: 0, y: -0.09483573, z: 0}

@@ -10,6 +10,7 @@ GameObject:
   - component: {fileID: 463680}
   - component: {fileID: 3351300}
   - component: {fileID: 2367384}
+  - component: {fileID: 65042985254897628}
   m_Layer: 0
   m_Name: SA_Wep_Knife
   m_TagString: Untagged
@@ -24,7 +25,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 192148}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 130.60614, y: 0.5, z: 176.43631}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -82,3 +83,15 @@ Prefab:
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 192148}
   m_IsPrefabParent: 1
+--- !u!65 &65042985254897628
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 192148}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.044309497, y: 0.17487764, z: 1.1426139}
+  m_Center: {x: 0, y: -0.032912258, z: 0.35172677}

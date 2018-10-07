@@ -10,6 +10,7 @@ GameObject:
   - component: {fileID: 406414}
   - component: {fileID: 3310396}
   - component: {fileID: 2342078}
+  - component: {fileID: 65193067272144142}
   m_Layer: 0
   m_Name: SA_Prop_WaterContainerEmpty_01
   m_TagString: Untagged
@@ -24,7 +25,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 142506}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 57.722443, y: 0.20000002, z: 53.296455}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -82,3 +83,15 @@ Prefab:
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 142506}
   m_IsPrefabParent: 1
+--- !u!65 &65193067272144142
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 142506}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.5185394, y: 0.8316474, z: 0.5183971}
+  m_Center: {x: 0.0013222694, y: 0.41640544, z: 0.0033091605}

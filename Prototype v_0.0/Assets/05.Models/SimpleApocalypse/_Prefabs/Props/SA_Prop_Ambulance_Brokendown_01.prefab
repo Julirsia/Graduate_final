@@ -10,6 +10,7 @@ GameObject:
   - component: {fileID: 443492}
   - component: {fileID: 3301584}
   - component: {fileID: 2323304}
+  - component: {fileID: 65684946541221950}
   m_Layer: 0
   m_Name: SA_Prop_Ambulance_Brokendown_01
   m_TagString: Untagged
@@ -24,7 +25,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 159110}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 33.05, y: 0.2, z: 9.12}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -82,3 +83,15 @@ Prefab:
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 159110}
   m_IsPrefabParent: 1
+--- !u!65 &65684946541221950
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 159110}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2.7495115, y: 2.8959653, z: 5.607522}
+  m_Center: {x: 0, y: 1.4479827, z: 0}

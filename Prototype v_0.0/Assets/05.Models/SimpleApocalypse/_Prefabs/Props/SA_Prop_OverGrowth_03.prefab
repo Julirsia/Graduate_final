@@ -10,6 +10,7 @@ GameObject:
   - component: {fileID: 417630}
   - component: {fileID: 3333784}
   - component: {fileID: 2341312}
+  - component: {fileID: 65733713783765454}
   m_Layer: 0
   m_Name: SA_Prop_OverGrowth_03
   m_TagString: Untagged
@@ -24,7 +25,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 123138}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 216.10156, y: 0.36196548, z: 166.93198}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -82,3 +83,15 @@ Prefab:
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 123138}
   m_IsPrefabParent: 1
+--- !u!65 &65733713783765454
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 123138}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 10.750305, y: 1.0456073, z: 9.84523}
+  m_Center: {x: 0, y: 0.36083823, z: 0}

@@ -10,6 +10,7 @@ GameObject:
   - component: {fileID: 484432}
   - component: {fileID: 3315152}
   - component: {fileID: 2347046}
+  - component: {fileID: 65258076207377838}
   m_Layer: 0
   m_Name: SA_Veh_WarTruck
   m_TagString: Untagged
@@ -251,7 +252,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 115952}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 125.75, y: 0.20000002, z: 56.76}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 442220}
@@ -658,3 +659,15 @@ Prefab:
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 115952}
   m_IsPrefabParent: 1
+--- !u!65 &65258076207377838
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 115952}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 3.1098783, y: 3.8351488, z: 11.139824}
+  m_Center: {x: -0.0000015497208, y: 2.314849, z: -0.50140476}

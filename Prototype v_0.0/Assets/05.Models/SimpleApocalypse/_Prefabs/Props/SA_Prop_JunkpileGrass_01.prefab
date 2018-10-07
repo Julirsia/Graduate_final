@@ -10,6 +10,7 @@ GameObject:
   - component: {fileID: 419386}
   - component: {fileID: 3326670}
   - component: {fileID: 2363486}
+  - component: {fileID: 65593108639611364}
   m_Layer: 0
   m_Name: SA_Prop_JunkpileGrass_01
   m_TagString: Untagged
@@ -24,7 +25,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 108322}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 78.10043, y: 0.20000002, z: 53.17492}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -82,3 +83,15 @@ Prefab:
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 108322}
   m_IsPrefabParent: 1
+--- !u!65 &65593108639611364
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 108322}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 4.0413957, y: 1.8506052, z: 4.1849794}
+  m_Center: {x: 0, y: 0.78429437, z: 0}

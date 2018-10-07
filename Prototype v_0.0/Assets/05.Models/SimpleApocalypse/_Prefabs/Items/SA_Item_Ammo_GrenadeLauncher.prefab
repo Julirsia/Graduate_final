@@ -10,6 +10,7 @@ GameObject:
   - component: {fileID: 434144}
   - component: {fileID: 3386090}
   - component: {fileID: 2320140}
+  - component: {fileID: 65599878349319310}
   m_Layer: 0
   m_Name: SA_Item_Ammo_GrenadeLauncher
   m_TagString: Untagged
@@ -24,7 +25,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 190316}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 64.90714, y: 0.20000002, z: 142.71419}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -82,3 +83,15 @@ Prefab:
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 190316}
   m_IsPrefabParent: 1
+--- !u!65 &65599878349319310
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 190316}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.9974694, y: 0.34114152, z: 0.6560943}
+  m_Center: {x: 0.00000023841858, y: 0.17057076, z: 0.00000011920929}

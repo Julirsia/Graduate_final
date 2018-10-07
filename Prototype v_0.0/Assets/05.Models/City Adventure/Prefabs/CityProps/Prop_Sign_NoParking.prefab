@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 3380524}
   - component: {fileID: 2329426}
   - component: {fileID: 6445608}
+  - component: {fileID: 65765687900240430}
   m_Layer: 0
   m_Name: Prop_Sign_NoParking
   m_TagString: Untagged
@@ -25,7 +26,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 192172}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 106.127716, y: 0.19999976, z: 32.922817}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -109,3 +110,15 @@ Prefab:
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 192172}
   m_IsPrefabParent: 1
+--- !u!65 &65765687900240430
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 192172}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.30831298, y: 3.7017589, z: 1.6110498}
+  m_Center: {x: 0, y: 1.8508794, z: 0.0000073313713}

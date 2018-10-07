@@ -11,6 +11,8 @@ GameObject:
   - component: {fileID: 3346262}
   - component: {fileID: 2306552}
   - component: {fileID: 6451578}
+  - component: {fileID: 65491107671686260}
+  - component: {fileID: 65308704966181964}
   m_Layer: 0
   m_Name: Foilage_Tree_A
   m_TagString: Untagged
@@ -25,7 +27,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 167926}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 78.049416, y: 0.20000002, z: 57.743317}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -105,3 +107,27 @@ Prefab:
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 167926}
   m_IsPrefabParent: 1
+--- !u!65 &65308704966181964
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 167926}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 3.0593462, y: 2.1481123, z: 3.0735137}
+  m_Center: {x: -0.048757315, y: 2.7785487, z: -0.03825724}
+--- !u!65 &65491107671686260
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 167926}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.8901925, y: 1.4647093, z: 0.69449234}
+  m_Center: {x: 0.08899665, y: 0.73235464, z: -0.072927475}

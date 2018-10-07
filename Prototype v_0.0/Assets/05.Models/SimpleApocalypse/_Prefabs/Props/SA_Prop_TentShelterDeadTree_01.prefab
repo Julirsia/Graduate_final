@@ -10,6 +10,9 @@ GameObject:
   - component: {fileID: 439630}
   - component: {fileID: 3385970}
   - component: {fileID: 2391378}
+  - component: {fileID: 65696804633874462}
+  - component: {fileID: 65383960654463362}
+  - component: {fileID: 65339959115626528}
   m_Layer: 0
   m_Name: SA_Prop_TentShelterDeadTree_01
   m_TagString: Untagged
@@ -24,7 +27,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 101636}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 64.40583, y: 0.33726424, z: 120.25903}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -82,3 +85,39 @@ Prefab:
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 101636}
   m_IsPrefabParent: 1
+--- !u!65 &65339959115626528
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 101636}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.6160202, y: 4.924152, z: 0.7856598}
+  m_Center: {x: 0.09957504, y: 2.3659909, z: 2.793045}
+--- !u!65 &65383960654463362
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 101636}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.7124596, y: 5.469993, z: 1.0526047}
+  m_Center: {x: -0.036672592, y: 2.6389115, z: -2.557354}
+--- !u!65 &65696804633874462
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 101636}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 3.7797873, y: 5.469993, z: 3.6708374}
+  m_Center: {x: 0, y: 2.6389115, z: -0.004180908}

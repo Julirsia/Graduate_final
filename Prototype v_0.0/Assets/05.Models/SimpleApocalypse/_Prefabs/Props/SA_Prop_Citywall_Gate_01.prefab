@@ -10,6 +10,9 @@ GameObject:
   - component: {fileID: 421642}
   - component: {fileID: 3309422}
   - component: {fileID: 2312916}
+  - component: {fileID: 65270623943415352}
+  - component: {fileID: 65530449703013734}
+  - component: {fileID: 65340955076133102}
   m_Layer: 0
   m_Name: SA_Prop_Citywall_Gate_01
   m_TagString: Untagged
@@ -23,13 +26,13 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 190444}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
+  m_LocalPosition: {x: 154.6, y: 0.2, z: 36.8}
   m_LocalScale: {x: 1.335, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
 --- !u!23 &2312916
 MeshRenderer:
   m_ObjectHideFlags: 1
@@ -82,3 +85,39 @@ Prefab:
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 190444}
   m_IsPrefabParent: 1
+--- !u!65 &65270623943415352
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 190444}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 5.245996, y: 3.4219027, z: 1.6008273}
+  m_Center: {x: -2.622998, y: 5.080359, z: -0.39399576}
+--- !u!65 &65340955076133102
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 190444}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.4119015, y: 6.7913103, z: 1.6008273}
+  m_Center: {x: -0.7059518, y: 3.3956552, z: -0.39399576}
+--- !u!65 &65530449703013734
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 190444}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.4856956, y: 6.7913103, z: 1.6008273}
+  m_Center: {x: -4.5031524, y: 3.3956552, z: -0.39399576}

@@ -10,6 +10,8 @@ GameObject:
   - component: {fileID: 497886}
   - component: {fileID: 3349188}
   - component: {fileID: 2302108}
+  - component: {fileID: 65984248141052958}
+  - component: {fileID: 65588784476099304}
   m_Layer: 0
   m_Name: SA_Prop_AmmoPile_M_01
   m_TagString: Untagged
@@ -24,7 +26,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 161824}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 60.542076, y: 0.25552404, z: 184.56413}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -82,3 +84,27 @@ Prefab:
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 161824}
   m_IsPrefabParent: 1
+--- !u!65 &65588784476099304
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 161824}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.9698958, y: 1.0936258, z: 1.2757785}
+  m_Center: {x: 1.0947311, y: 0.507946, z: -0.52440965}
+--- !u!65 &65984248141052958
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 161824}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.956842, y: 1.0936258, z: 2.3245978}
+  m_Center: {x: -1.101258, y: 0.507946, z: 0}
