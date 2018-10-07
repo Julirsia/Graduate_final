@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
+using System.Collections;
 
 public class Shooting : Photon.MonoBehaviour
 {
@@ -18,7 +19,8 @@ public class Shooting : Photon.MonoBehaviour
     private string m_FireButton;         
     private float m_CurrentLaunchForce;  
     private float m_ChargeSpeed;         
-    private bool m_Fired;                
+    private bool m_Fired;
+    public bool check = true;
 
 
     private void OnEnable()
@@ -31,7 +33,7 @@ public class Shooting : Photon.MonoBehaviour
             enabled = false;
         }
     }
-
+   
 
     private void Start()
     {
@@ -47,8 +49,11 @@ public class Shooting : Photon.MonoBehaviour
 
         if(m_CurrentLaunchForce >= m_MaxLaunchForce && !m_Fired)
         {
-            m_CurrentLaunchForce = m_MaxLaunchForce;
-            Fire();
+          //  m_CurrentLaunchForce = m_MaxLaunchForce;
+          //  Fire();
+           
+            
+
         }
         else if(Input.GetButtonDown(m_FireButton))
         {
@@ -64,14 +69,23 @@ public class Shooting : Photon.MonoBehaviour
 
               m_AimSlider.value = m_CurrentLaunchForce; */
         }
-        else if (Input.GetButtonUp(m_FireButton))
+        else if (Input.GetButtonUp(m_FireButton) && check)
         {
             Fire();
+            StartCoroutine(Wait());
         }
         // Track the current state of the fire button and make decisions based on the current launch force.
     }
+    
+    IEnumerator Wait()
+    {
+        check = false;
+        yield return new WaitForSeconds(2.0f);
+        check = true;
+    }
+    
 
-
+    
     private void Fire()
     {
         m_Fired = true;
@@ -100,4 +114,7 @@ public class Shooting : Photon.MonoBehaviour
 
         m_CurrentLaunchForce = m_MinLaunchForce;
     }
+
+    
 }
+

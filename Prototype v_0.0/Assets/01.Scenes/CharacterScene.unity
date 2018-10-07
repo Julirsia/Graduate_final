@@ -410,20 +410,6 @@ Prefab:
       propertyPath: target
       value: 
       objectReference: {fileID: 1130337392}
-    - target: {fileID: 1922822823709838, guid: af14041239b3c9e408b0086176d1b54f, type: 2}
-      propertyPath: m_Name
-      value: CameraSetup
-      objectReference: {fileID: 0}
-    - target: {fileID: 114371544147208686, guid: af14041239b3c9e408b0086176d1b54f,
-        type: 2}
-      propertyPath: distFromTarget
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 114249332493951496, guid: af14041239b3c9e408b0086176d1b54f,
-        type: 2}
-      propertyPath: distance
-      value: 5
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: af14041239b3c9e408b0086176d1b54f, type: 2}
   m_IsPrefabParent: 0
