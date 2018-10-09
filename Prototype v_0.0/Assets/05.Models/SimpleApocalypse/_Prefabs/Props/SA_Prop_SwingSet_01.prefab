@@ -10,6 +10,9 @@ GameObject:
   - component: {fileID: 400154}
   - component: {fileID: 3341152}
   - component: {fileID: 2379470}
+  - component: {fileID: 65644330133438432}
+  - component: {fileID: 65775993838383668}
+  - component: {fileID: 65038522337220514}
   m_Layer: 0
   m_Name: SA_Prop_SwingSet_01
   m_TagString: Untagged
@@ -24,7 +27,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 131984}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 45.414307, y: 0.30000004, z: 31.159622}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -82,3 +85,39 @@ Prefab:
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 131984}
   m_IsPrefabParent: 1
+--- !u!65 &65038522337220514
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 131984}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 3.1978645, y: 2.831348, z: 0.7030239}
+  m_Center: {x: 0.037878036, y: 1.4149578, z: -0.035424232}
+--- !u!65 &65644330133438432
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 131984}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.3192606, y: 2.831348, z: 2.7301478}
+  m_Center: {x: 2.070168, y: 1.4149578, z: 0}
+--- !u!65 &65775993838383668
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 131984}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.2702875, y: 2.831348, z: 2.7301478}
+  m_Center: {x: -2.0946546, y: 1.4149578, z: 0}

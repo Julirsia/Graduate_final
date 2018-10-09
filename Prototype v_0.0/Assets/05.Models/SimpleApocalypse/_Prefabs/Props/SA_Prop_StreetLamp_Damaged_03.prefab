@@ -10,6 +10,10 @@ GameObject:
   - component: {fileID: 453570}
   - component: {fileID: 3370152}
   - component: {fileID: 2375712}
+  - component: {fileID: 65562001800449826}
+  - component: {fileID: 65384680288754944}
+  - component: {fileID: 65682982579358260}
+  - component: {fileID: 65078420378454286}
   m_Layer: 0
   m_Name: SA_Prop_StreetLamp_Damaged_03
   m_TagString: Untagged
@@ -24,7 +28,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 174658}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 8.392, y: 0.3, z: 18.1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -82,3 +86,51 @@ Prefab:
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 174658}
   m_IsPrefabParent: 1
+--- !u!65 &65078420378454286
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 174658}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.6283407, y: 1.6500634, z: 0.24455833}
+  m_Center: {x: -0.58221006, y: 0.8236957, z: -2.4854755}
+--- !u!65 &65384680288754944
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 174658}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.30260658, y: 1.6500634, z: 0.9325142}
+  m_Center: {x: 0.53926945, y: 0.8236957, z: -0.58291245}
+--- !u!65 &65562001800449826
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 174658}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.76251125, y: 1.6500634, z: 0.61039066}
+  m_Center: {x: -0.038013935, y: 0.8236957, z: -0.018603802}
+--- !u!65 &65682982579358260
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 174658}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2.5301342, y: 1.6500634, z: 0.9164953}
+  m_Center: {x: -0.63559246, y: 0.8236957, z: -1.6918483}

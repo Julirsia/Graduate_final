@@ -10,6 +10,7 @@ GameObject:
   - component: {fileID: 449394}
   - component: {fileID: 3331114}
   - component: {fileID: 2308486}
+  - component: {fileID: 65205480270741708}
   m_Layer: 0
   m_Name: SA_Wep_baseballBat
   m_TagString: Untagged
@@ -24,7 +25,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 190230}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 55.899734, y: 0.30000004, z: 52.889225}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -82,3 +83,15 @@ Prefab:
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 190230}
   m_IsPrefabParent: 1
+--- !u!65 &65205480270741708
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 190230}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.0639869, y: 0.0639863, z: 0.88463116}
+  m_Center: {x: 0.0000019669533, y: -0.00000023841858, z: 0.28847313}

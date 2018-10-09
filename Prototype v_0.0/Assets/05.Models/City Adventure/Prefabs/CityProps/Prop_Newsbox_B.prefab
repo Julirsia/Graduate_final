@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 3387240}
   - component: {fileID: 2384440}
   - component: {fileID: 6412286}
+  - component: {fileID: 65304133746285456}
   m_Layer: 0
   m_Name: Prop_Newsbox_B
   m_TagString: Untagged
@@ -25,7 +26,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 116754}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 38.696587, y: 0.2999998, z: 18.182453}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -109,3 +110,15 @@ Prefab:
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 116754}
   m_IsPrefabParent: 1
+--- !u!65 &65304133746285456
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 116754}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.758, y: 1.3507936, z: 0.91434866}
+  m_Center: {x: -0.00000037252903, y: 0.6753968, z: 0}
