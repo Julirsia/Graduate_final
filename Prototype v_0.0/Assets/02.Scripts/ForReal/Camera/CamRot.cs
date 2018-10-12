@@ -42,6 +42,7 @@ public class CamRot : MonoBehaviour
         transform.eulerAngles = currentRot;
 
         transform.position = target.position - transform.forward * distFromTarget;
+        
 
 	}
 }

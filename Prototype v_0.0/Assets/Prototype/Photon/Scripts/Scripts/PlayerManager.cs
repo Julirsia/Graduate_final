@@ -1,5 +1,6 @@
 ﻿using System;
 using UnityEngine;
+using UnityStandardAssets.Characters.ThirdPerson;
 
 [Serializable]
 public class PlayerManager 
@@ -12,16 +13,16 @@ public class PlayerManager
     [HideInInspector] public int m_Wins;
 
 
-    public InputHandler m_Movement;
-    public Actor m_actor;
+    public ThirdPersonUserControl m_Movement;
+    public ThirdPersonCharacter m_actor;
     public Shooting m_Shooting;
     public GameObject m_CanvasGameObject;
 
 
     public void Setup()
     {
-        m_actor = m_Instance.GetComponent<Actor>();
-        m_Movement = m_Instance.GetComponent<InputHandler>();
+        m_actor = m_Instance.GetComponent<ThirdPersonCharacter>();
+        m_Movement = m_Instance.GetComponent<ThirdPersonUserControl>();
         m_Shooting = m_Instance.GetComponent<Shooting>();
         m_CanvasGameObject = m_Instance.GetComponentInChildren<Canvas>().gameObject;
 

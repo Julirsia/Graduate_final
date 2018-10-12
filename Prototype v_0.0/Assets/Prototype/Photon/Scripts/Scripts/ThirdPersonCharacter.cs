@@ -5,7 +5,7 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 	[RequireComponent(typeof(Rigidbody))]
 	[RequireComponent(typeof(CapsuleCollider))]
 	[RequireComponent(typeof(Animator))]
-	public class ThirdPersonCharacter : MonoBehaviour
+	public class ThirdPersonCharacter : Photon.PunBehaviour
 	{
 		[SerializeField] float m_MovingTurnSpeed = 360;
 		[SerializeField] float m_StationaryTurnSpeed = 180;
@@ -17,20 +17,27 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 		[SerializeField] float m_GroundCheckDistance = 0.1f;
 
 		Rigidbody m_Rigidbody;
-		Animator m_Animator;
+        public int m_PlayerNumber = 1;
+        Animator m_Animator;
 		bool m_IsGrounded;
 		float m_OrigGroundCheckDistance;
 		const float k_Half = 0.5f;
-		float m_TurnAmount;
+        float mouseSensitivity = 10;
+        float m_TurnAmount;
 		float m_ForwardAmount;
-		Vector3 m_GroundNormal;
+        Vector3 m_GroundNormal;
 		float m_CapsuleHeight;
 		Vector3 m_CapsuleCenter;
 		CapsuleCollider m_Capsule;
 		bool m_Crouching;
+        float yaw;
+        float pitch;
+        public float rotationSmoothTime = .12f;
+        Vector3 currentRotation;
+        Vector3 rotationSmoothVelocity;
 
 
-		void Start()
+        void Start()
 		{
 			m_Animator = GetComponent<Animator>();
 			m_Rigidbody = GetComponent<Rigidbody>();
@@ -42,8 +49,19 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 			m_OrigGroundCheckDistance = m_GroundCheckDistance;
 		}
 
+        void LateUpdate()
+        {
 
-		public void Move(Vector3 move, bool crouch, bool jump)
+          /*  yaw += Input.GetAxis("Mouse X") * mouseSensitivity;
+            pitch -= Input.GetAxis("Mouse Y") * mouseSensitivity * 0;
+
+            currentRotation = Vector3.SmoothDamp(currentRotation, new Vector3(pitch, yaw), ref rotationSmoothVelocity, rotationSmoothTime);
+            transform.eulerAngles = currentRotation;
+            */
+        }
+
+
+        public void Move(Vector3 move, bool crouch, bool jump, float turn)
 		{
 
 			// convert the world relative moveInput vector into a local-relative
@@ -53,13 +71,22 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 			move = transform.InverseTransformDirection(move);
 			CheckGroundStatus();
 			move = Vector3.ProjectOnPlane(move, m_GroundNormal);
-			m_TurnAmount = Mathf.Atan2(move.x, move.z);
-			m_ForwardAmount = move.z;
-
-			ApplyExtraTurnRotation();
-
-			// control and velocity handling is different when grounded and airborne:
-			if (m_IsGrounded)
+            //m_TurnAmount = Mathf.Atan2(yaw, move.z);
+            m_TurnAmount = Mathf.Atan2(move.x, move.z);
+            m_ForwardAmount = move.z;
+            if (m_ForwardAmount < 0.0)
+            {
+                float turnSpeed;
+                turnSpeed = Input.GetAxis("Horizontal");
+                turnSpeed = Mathf.Clamp(turnSpeed, -1.0F, 1.0F);
+                transform.Rotate(0.0F, turnSpeed, 0.0F);
+                m_Animator.SetFloat("Turn", turnSpeed);
+            }
+            else { 
+                ApplyExtraTurnRotation();
+            }
+            // control and velocity handling is different when grounded and airborne:
+            if (m_IsGrounded)
 			{
 				HandleGroundedMovement(crouch, jump);
 			}
