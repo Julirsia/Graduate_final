@@ -7,7 +7,7 @@ using UnityEngine;
 public class UnitTest : MonoBehaviour {
 
     public Transform target;
-    float speed = 1;
+    public float speed = 1;
     Vector3[] path;
     int targetIndex;
 
@@ -18,6 +18,7 @@ public class UnitTest : MonoBehaviour {
 	}
     public void OnPathFound(Vector3[] newPath, bool pathSuccessful)
     {
+        Debug.Log("OnPathFound");
         if (pathSuccessful)
         {
             path = newPath;
@@ -29,6 +30,7 @@ public class UnitTest : MonoBehaviour {
 
     IEnumerator FollowPath()
     {
+        Debug.Log("FollowPath");
         Vector3 currentWaypoint = path[0];
 
         while (true)

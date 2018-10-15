@@ -5,24 +5,39 @@ using UnityEngine;
 public class Grid : MonoBehaviour
 {
     public bool displayGrid;
-    public LayerMask unworkableMask;
     public float nodeRadius; //size of individual node
     public Vector2 gridWorldSize;
-    Node[,] grid;
+    public LayerMask unworkableMask;
+
     float nodDiameter;
     int gridSizeX, gridSizeY;
+
+    public TerrainType[] walkableRegions;
+    LayerMask walkableMask;
+    Dictionary<int, int> walkableRegionDict = new Dictionary<int, int>();
+
+    Node[,] grid;
 
     public int MaxSize { get { return gridSizeX * gridSizeY; } }
 
     void Awake ()
     {
-        //how many nodes set into our grid
+        //그리드에 얼마나 노드를 깔지
         nodDiameter = nodeRadius * 2;
         gridSizeX = Mathf.RoundToInt(gridWorldSize.x / nodDiameter);
         gridSizeY= Mathf.RoundToInt(gridWorldSize.y / nodDiameter);
+
+        //Terrain Mask 설정(가중치 값을 위함)
+        foreach (TerrainType region in walkableRegions)
+        {
+            walkableMask.value |= region.terrainMask.value;
+            walkableRegionDict.Add((int)Mathf.Log(region.terrainMask.value,2),region.terrainPenalty);//레이어마스크의 2진수 값을 
+        }
+
         CreateGrid();
     }
 
+    //그리드를 생성
     void CreateGrid()
     {
         grid = new Node[gridSizeX, gridSizeY];
@@ -32,10 +47,24 @@ public class Grid : MonoBehaviour
             {
                 Vector3 worldPoint = worldBottomLeft + Vector3.right * (x * nodDiameter + nodeRadius) + Vector3.forward * (y * nodDiameter + nodeRadius);
                 bool walkable = !(Physics.CheckSphere(worldPoint, nodeRadius, unworkableMask));
-                grid[x, y] = new Node(walkable, worldPoint, x, y);
+
+                int movementPenalty = 0;
+
+                if (walkable)
+                {
+                    Ray ray = new Ray(worldPoint + Vector3.up * 50, Vector3.down);
+                    RaycastHit hit;
+                    if (Physics.Raycast(ray, out hit, 100, walkableMask))
+                    {
+                        walkableRegionDict.TryGetValue(hit.collider.gameObject.layer, out movementPenalty);
+                    }
+                }
+
+                grid[x, y] = new Node(walkable, worldPoint, x, y, movementPenalty);
             }
     }
 
+    //pathfinding에서 호출하는 이웃 노드 가져오는 메서드
     public List<Node> GetNeighbours(Node node)
     {
         List<Node> neighbours = new List<Node>();
@@ -56,6 +85,7 @@ public class Grid : MonoBehaviour
              return neighbours;
     }
 
+    //월드좌표 -> 노드좌표로 변환
     public Node GetNodeFromWorldPoint(Vector3 worldPosition)
     {
         float percentX = (worldPosition.x + gridWorldSize.x / 2) / gridWorldSize.x;
@@ -69,6 +99,7 @@ public class Grid : MonoBehaviour
         return grid[x,y];
     }
 
+    //Scene뷰에 그려줌
     private void OnDrawGizmos()
     {
         if (displayGrid)
@@ -87,4 +118,11 @@ public class Grid : MonoBehaviour
          
     }
 
+    //도로별 가중치 값을 위한 클래스.
+    [System.Serializable]
+    public class TerrainType
+    {
+        public LayerMask terrainMask;
+        public int terrainPenalty;
+    }
 }

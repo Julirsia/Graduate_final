@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657826, g: 0.49641263, b: 0.57481676, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -77,15 +77,18 @@ LightmapSettings:
     m_PVRDirectSampleCount: 32
     m_PVRSampleCount: 500
     m_PVRBounces: 2
-    m_PVRFiltering: 0
+    m_PVRFilterTypeDirect: 0
+    m_PVRFilterTypeIndirect: 0
+    m_PVRFilterTypeAO: 0
     m_PVRFilteringMode: 1
     m_PVRCulling: 1
     m_PVRFilteringGaussRadiusDirect: 1
     m_PVRFilteringGaussRadiusIndirect: 5
     m_PVRFilteringGaussRadiusAO: 2
-    m_PVRFilteringAtrousColorSigma: 1
-    m_PVRFilteringAtrousNormalSigma: 1
-    m_PVRFilteringAtrousPositionSigma: 1
+    m_PVRFilteringAtrousPositionSigmaDirect: 0.5
+    m_PVRFilteringAtrousPositionSigmaIndirect: 2
+    m_PVRFilteringAtrousPositionSigmaAO: 1
+    m_ShowResolutionOverlay: 1
   m_LightingDataAsset: {fileID: 0}
   m_UseShadowmask: 1
 --- !u!196 &4
@@ -107,6 +110,8 @@ NavMeshSettings:
     manualTileSize: 0
     tileSize: 256
     accuratePlacement: 0
+    debug:
+      m_Flags: 0
   m_NavMeshData: {fileID: 0}
 --- !u!1001 &1467373912
 Prefab:
@@ -146,6 +151,22 @@ Prefab:
     - target: {fileID: 4108451850171112, guid: 7cfa9b5d3c6482140b90c7e64f5ab933, type: 2}
       propertyPath: m_RootOrder
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4932062472183978, guid: 7cfa9b5d3c6482140b90c7e64f5ab933, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: -25.214
+      objectReference: {fileID: 0}
+    - target: {fileID: 4932062472183978, guid: 7cfa9b5d3c6482140b90c7e64f5ab933, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: -2.4905
+      objectReference: {fileID: 0}
+    - target: {fileID: 4932062472183978, guid: 7cfa9b5d3c6482140b90c7e64f5ab933, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 12.0516405
+      objectReference: {fileID: 0}
+    - target: {fileID: 1993904946919688, guid: 7cfa9b5d3c6482140b90c7e64f5ab933, type: 2}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7cfa9b5d3c6482140b90c7e64f5ab933, type: 2}

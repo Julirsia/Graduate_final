@@ -17,16 +17,23 @@ public class PathFindingTest : MonoBehaviour
 
     public void StartFindPath(Vector3 startPos, Vector3 targetPos)
     {
+        Debug.Log("StartFindingPath");
         StartCoroutine(FindPath(startPos, targetPos));
     }
 
     IEnumerator FindPath(Vector3 startPos, Vector3 targetPos)
     {
+        Debug.Log("FindPath");
         Vector3[] waypoints = new Vector3[0];
         bool pathSuccess = false;
 
         Node startNode = grid.GetNodeFromWorldPoint(startPos);
         Node targetNode = grid.GetNodeFromWorldPoint(targetPos);
+
+        Debug.Log("start : " + startNode.gridX +","+ startNode.gridY);
+        Debug.Log("target : " + targetNode.gridX + "," + targetNode.gridY);
+
+        startNode.parent = startNode;
 
         if(startNode.walkable && targetNode.walkable)
         {
@@ -51,7 +58,7 @@ public class PathFindingTest : MonoBehaviour
                     if (!neighbour.walkable || closedSet.Contains(neighbour))
                         continue;
 
-                    int newMovementCostToNeighbour = currentNode.gCost + GetDistance(currentNode, neighbour);
+                    int newMovementCostToNeighbour = currentNode.gCost + GetDistance(currentNode, neighbour) + neighbour.movementPenalty;
 
                     if (newMovementCostToNeighbour < currentNode.gCost || !openSet.Contains(neighbour))
                     {
@@ -76,6 +83,7 @@ public class PathFindingTest : MonoBehaviour
 
     Vector3[] RetracePath(Node startNode, Node endNode)
     {
+        Debug.Log("RetracePath");
         List<Node> path = new List<Node>();
         Node currentNode = endNode;
 

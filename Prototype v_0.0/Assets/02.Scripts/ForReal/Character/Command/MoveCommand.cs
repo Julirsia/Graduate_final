@@ -4,11 +4,15 @@ using UnityEngine;
 
 public class MoveCommand : Photon.PunBehaviour, ICommand 
 {
+    private Vector3 moveValue;
+    private bool isJump;
+    /*
      private Vector3 f_move;
      private bool m_Jump;
      private Transform m_Cam;                  // A reference to the main camera in the scenes transform
      private Vector3 m_CamForward;
 
+    
      private void Start(){
          if (Camera.main != null)
             {
@@ -29,11 +33,12 @@ public class MoveCommand : Photon.PunBehaviour, ICommand
             }
      }
 
-    private void FixedUpdate() {
+    private void FixedUpdate()
+    {
 
-float h = Input.GetAxis("Horizontal");
-float v = Input.GetAxis("Vertical");
-bool crouch = Input.GetKey(KeyCode.C);
+        float h = Input.GetAxis("Horizontal");
+        float v = Input.GetAxis("Vertical");
+        bool crouch = Input.GetKey(KeyCode.C);
 
            if (m_Cam != null)
             {
@@ -48,17 +53,19 @@ bool crouch = Input.GetKey(KeyCode.C);
             }
             if (Input.GetKey(KeyCode.LeftShift)) f_move *= 0.5f;
     }
+    */
 
-     public MoveCommand(Actor actor, float horizIpt, float vertIpt)
-    {/*
+     public MoveCommand(Actor actor, float horizIpt, float vertIpt, bool jump)
+    {
         actor.Horizontal = horizIpt;
         actor.Vertical = vertIpt;
-        f_move = vertIpt * Vector3.forward + horizIpt * Vector3.right; 
-    */
-        }
+        moveValue= vertIpt * Vector3.forward + horizIpt * Vector3.right;
+        isJump = jump;
+    
+     }
     public void Execute(Actor actor)
     {
-        actor.Move(f_move, m_Jump);
-        m_Jump = false;
+        actor.Move(moveValue, isJump);
+        //m_Jump = false;
     }
 }

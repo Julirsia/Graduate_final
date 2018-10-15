@@ -4,7 +4,7 @@ using UnityEngine;
 
 /*유저의 입력을 받아서 Command를 통해 버튼 입력을 처리 하는 클래스*/
 
-public class InputHandler : Photon.PunBehaviour
+public class InputHandler : MonoBehaviour //: Photon.PunBehaviour
 {
     #region command pattern variables
 
@@ -18,11 +18,12 @@ public class InputHandler : Photon.PunBehaviour
     #endregion
 
     #region input values
-    public Transform camRotation;
+    //public Transform camRotation;
     public int m_PlayerNumber = 1;
     private float horizInput= 0f;
     private float vertInput= 0f;
-    public Vector2 MouseInput;
+    private bool isJump;
+    //public Vector2 MouseInput;
     #endregion
 
     
@@ -30,18 +31,20 @@ public class InputHandler : Photon.PunBehaviour
     {
         actor = GetComponent<Actor>();
         //이부분 포톤이랑 연동되면서 무조건 false로 됨
-        
+        /*
         if (!photonView.isMine)
         {
             enabled = false;
-        }
+        }*/
     }
 
     void Update()
     {
-        MouseInput = new Vector2(Input.GetAxisRaw("Mouse X"), Input.GetAxisRaw("Mouse Y"));
+        
+        //MouseInput = new Vector2(Input.GetAxisRaw("Mouse X"), Input.GetAxisRaw("Mouse Y"));
         command = GetCommand();
         command.Execute(actor);
+        
     }
 
     /*유저의 키 입력값을 받아 그 입력에 해당하는 Command를 리턴하는 메서드
@@ -50,10 +53,9 @@ public class InputHandler : Photon.PunBehaviour
     public ICommand GetCommand()
     {
         if (IsPressed(userInput.Move))
-            return new MoveCommand(actor, horizInput, vertInput);
+            return new MoveCommand(actor, horizInput, vertInput, isJump );
         else if (IsPressed(userInput.Attack))
             return new AttackCommand();
-        //else if(IsPressed(userInput.))
         else
             return new IdleCommand();
     }
@@ -72,10 +74,13 @@ public class InputHandler : Photon.PunBehaviour
             vertInput = Input.GetAxis("Vertical");
             pressedBtn = userInput.Move;
         }
-        else if (Input.GetKey(KeyCode.Space))
-            pressedBtn = userInput.MoveJump;
         else if (Input.GetMouseButtonDown(0))
             pressedBtn = userInput.Attack;
+
+        isJump = Input.GetKey(KeyCode.Space);
+            
+
+        bool crouch = Input.GetKey(KeyCode.C);
 
         return 
             (btn == pressedBtn);
