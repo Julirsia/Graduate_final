@@ -26,8 +26,8 @@ TagManager:
   - GrassArea
   - Road
   - Concrete
-  - 
-  - 
+  - Environment
+  - NotDrawMainCam
   - 
   - 
   - 

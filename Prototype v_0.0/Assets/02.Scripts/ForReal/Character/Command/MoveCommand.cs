@@ -55,17 +55,15 @@ public class MoveCommand : Photon.PunBehaviour, ICommand
     }
     */
 
-     public MoveCommand(Actor actor, float horizIpt, float vertIpt, bool jump)
+     public MoveCommand(Actor actor, Vector3 moveVect , bool jump)
     {
-        actor.Horizontal = horizIpt;
-        actor.Vertical = vertIpt;
-        moveValue= vertIpt * Vector3.forward + horizIpt * Vector3.right;
+        moveValue = moveVect;
         isJump = jump;
     
      }
     public void Execute(Actor actor)
     {
-        actor.Move(moveValue, isJump);
+        actor.Move(moveValue);//, isJump);
         //m_Jump = false;
     }
 }
