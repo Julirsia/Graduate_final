@@ -11,6 +11,8 @@ GameObject:
   - component: {fileID: 3317236}
   - component: {fileID: 2366296}
   - component: {fileID: 65099684405173738}
+  - component: {fileID: 65176970176877820}
+  - component: {fileID: 65492612284993500}
   m_Layer: 0
   m_Name: SA_Env_ForestTile_01
   m_TagString: Untagged
@@ -25,7 +27,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 158148}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 10.8, y: 0.44235525, z: 27.1}
+  m_LocalPosition: {x: 122.5, y: 0.20000002, z: 38.8}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -93,5 +95,29 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 8.69806, y: 6.347417, z: 7.778097}
-  m_Center: {x: -5.7441916, y: 2.9798245, z: -5.794362}
+  m_Size: {x: 1.8488312, y: 6.347417, z: 1.8744049}
+  m_Center: {x: -7.1749344, y: 2.9798245, z: -2.1854591}
+--- !u!65 &65176970176877820
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 158148}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.3916702, y: 3.1030293, z: 1.3052654}
+  m_Center: {x: -2.0237083, y: 1.357631, z: -3.9976282}
+--- !u!65 &65492612284993500
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 158148}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.4376831, y: 1.6565514, z: 1.5771904}
+  m_Center: {x: -6.2697754, y: 0.634392, z: -7.508768}

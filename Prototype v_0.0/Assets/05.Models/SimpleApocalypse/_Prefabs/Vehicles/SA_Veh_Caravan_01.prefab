@@ -10,13 +10,13 @@ GameObject:
   - component: {fileID: 491008}
   - component: {fileID: 3361418}
   - component: {fileID: 2313070}
-  - component: {fileID: 65780078218667854}
+  - component: {fileID: 65450691554692226}
   m_Layer: 0
   m_Name: SA_Veh_Caravan_01
-  m_TagString: Untagged
+  m_TagString: FIELD_OBJ
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 16
   m_IsActive: 1
 --- !u!4 &491008
 Transform:
@@ -24,8 +24,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 172616}
-  m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 95.79, y: 0.22648552, z: 141.33}
+  m_LocalRotation: {x: -0, y: 0.7071068, z: -0, w: 0.7071068}
+  m_LocalPosition: {x: 78.2, y: 0.22648552, z: 68.3}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -83,7 +83,7 @@ Prefab:
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 172616}
   m_IsPrefabParent: 1
---- !u!65 &65780078218667854
+--- !u!65 &65450691554692226
 BoxCollider:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -93,5 +93,5 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 3.934411, y: 3.982832, z: 10.007655}
-  m_Center: {x: 0, y: 1.9649305, z: 0}
+  m_Size: {x: 2.7540877, y: 2.7879825, z: 7.005358}
+  m_Center: {x: 0, y: 1.3754513, z: 0}

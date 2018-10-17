@@ -10,6 +10,8 @@ GameObject:
   - component: {fileID: 496100}
   - component: {fileID: 3343624}
   - component: {fileID: 2391106}
+  - component: {fileID: 65235788501912536}
+  - component: {fileID: 65566186548463768}
   m_Layer: 0
   m_Name: SA_Prop_Fence_Brick_Damaged_02
   m_TagString: Untagged
@@ -24,7 +26,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 191250}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 67.755615, y: 0.20000002, z: 64.26817}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -82,3 +84,27 @@ Prefab:
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 191250}
   m_IsPrefabParent: 1
+--- !u!65 &65235788501912536
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 191250}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.3432083, y: 1.7316911, z: 1.724102}
+  m_Center: {x: 0.15080643, y: 1.293599, z: 0.47451973}
+--- !u!65 &65566186548463768
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 191250}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.3028183, y: 2.3997781, z: 1.5844607}
+  m_Center: {x: 0.19034195, y: 1.1998891, z: 3.6061113}

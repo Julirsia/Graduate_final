@@ -11,6 +11,8 @@ GameObject:
   - component: {fileID: 3303222}
   - component: {fileID: 2323414}
   - component: {fileID: 65523256478233720}
+  - component: {fileID: 65401666702417622}
+  - component: {fileID: 65453341297086316}
   m_Layer: 0
   m_Name: SA_Env_RoadStraight_Damaged_04
   m_TagString: Street
@@ -25,7 +27,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 186668}
   m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 167.5, y: 0.2, z: 57.30689}
+  m_LocalPosition: {x: 74.72, y: 0.2, z: 29.6}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -83,6 +85,30 @@ Prefab:
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 186668}
   m_IsPrefabParent: 1
+--- !u!65 &65401666702417622
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 186668}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.0625837, y: 1.3378508, z: 1.8114619}
+  m_Center: {x: 3.509389, y: 0.23227257, z: -9.243229}
+--- !u!65 &65453341297086316
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 186668}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.6684149, y: 1.3378508, z: 1.297424}
+  m_Center: {x: 1.6910214, y: 0.23227257, z: -3.8674965}
 --- !u!65 &65523256478233720
 BoxCollider:
   m_ObjectHideFlags: 1

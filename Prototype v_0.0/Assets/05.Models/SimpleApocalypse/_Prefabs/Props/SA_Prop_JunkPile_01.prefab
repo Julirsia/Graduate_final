@@ -13,10 +13,10 @@ GameObject:
   - component: {fileID: 65199519344902702}
   m_Layer: 0
   m_Name: SA_Prop_JunkPile_01
-  m_TagString: Untagged
+  m_TagString: FIELD_OBJ
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 16
   m_IsActive: 1
 --- !u!4 &455914
 Transform:
@@ -24,8 +24,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 151030}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 166.37447, y: 0.20000005, z: 176.93858}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 88.7, y: 0.2, z: 78.6}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -93,5 +93,5 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 5.7734222, y: 1.5644435, z: 5.9785423}
-  m_Center: {x: 0, y: 0.60771674, z: 0}
+  m_Size: {x: 4.031502, y: 1.5644435, z: 3.635727}
+  m_Center: {x: 0.121730804, y: 0.60771674, z: 0.26037598}

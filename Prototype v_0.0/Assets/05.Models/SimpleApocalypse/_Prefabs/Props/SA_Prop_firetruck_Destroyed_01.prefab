@@ -10,6 +10,7 @@ GameObject:
   - component: {fileID: 472646}
   - component: {fileID: 3355074}
   - component: {fileID: 2378562}
+  - component: {fileID: 65829782027254898}
   m_Layer: 0
   m_Name: SA_Prop_firetruck_Destroyed_01
   m_TagString: Untagged
@@ -24,7 +25,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 174962}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 68.27213, y: 0.20000003, z: 19.334166}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -82,3 +83,15 @@ Prefab:
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 174962}
   m_IsPrefabParent: 1
+--- !u!65 &65829782027254898
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 174962}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 3.0711212, y: 3.1426704, z: 5.1758785}
+  m_Center: {x: 0.17783356, y: 1.532112, z: -0.09569645}

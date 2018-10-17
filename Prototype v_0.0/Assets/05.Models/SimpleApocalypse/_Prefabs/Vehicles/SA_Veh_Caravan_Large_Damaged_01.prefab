@@ -10,6 +10,7 @@ GameObject:
   - component: {fileID: 484122}
   - component: {fileID: 3382150}
   - component: {fileID: 2364940}
+  - component: {fileID: 65017684638598986}
   m_Layer: 0
   m_Name: SA_Veh_Caravan_Large_Damaged_01
   m_TagString: Untagged
@@ -24,7 +25,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 185714}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 76.7913, y: 0.19999976, z: 59.554184}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -82,3 +83,15 @@ Prefab:
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 185714}
   m_IsPrefabParent: 1
+--- !u!65 &65017684638598986
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 185714}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 3.0732024, y: 3.1926076, z: 10.143677}
+  m_Center: {x: 0, y: 1.5768086, z: 0}
