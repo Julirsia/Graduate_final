@@ -10,6 +10,7 @@ GameObject:
   - component: {fileID: 456872}
   - component: {fileID: 3346200}
   - component: {fileID: 2338476}
+  - component: {fileID: 65554252074533420}
   m_Layer: 0
   m_Name: SA_Prop_Citywall_01
   m_TagString: Untagged
@@ -23,13 +24,13 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 103528}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.335, y: 1, z: 1}
+  m_LocalRotation: {x: -0, y: -0, z: 0, w: 1}
+  m_LocalPosition: {x: 19.335003, y: 0.04482823, z: -12.180002}
+  m_LocalScale: {x: 1.3500005, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
 --- !u!23 &2338476
 MeshRenderer:
   m_ObjectHideFlags: 1
@@ -82,3 +83,15 @@ Prefab:
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 103528}
   m_IsPrefabParent: 1
+--- !u!65 &65554252074533420
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 103528}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 0
+  serializedVersion: 2
+  m_Size: {x: 14.988556, y: 19.403744, z: 2.251587}
+  m_Center: {x: -7.494278, y: 9.701872, z: -1.1257324}

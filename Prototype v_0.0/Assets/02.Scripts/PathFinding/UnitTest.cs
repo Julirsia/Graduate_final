@@ -18,9 +18,9 @@ public class UnitTest : MonoBehaviour {
 	}
     public void OnPathFound(Vector3[] newPath, bool pathSuccessful)
     {
-        Debug.Log("OnPathFound");
         if (pathSuccessful)
         {
+            Debug.Log("OnPathFound : Success");
             path = newPath;
             targetIndex = 0;
             StopCoroutine("FollowPath");

@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 3351026}
   - component: {fileID: 2346018}
   - component: {fileID: 6454382}
+  - component: {fileID: 65416914500931202}
   m_Layer: 0
   m_Name: Prop_TrafficCone
   m_TagString: Untagged
@@ -80,7 +81,7 @@ MeshCollider:
   m_GameObject: {fileID: 186968}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 3
   m_Convex: 0
   m_CookingOptions: 14
@@ -109,3 +110,15 @@ Prefab:
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 186968}
   m_IsPrefabParent: 1
+--- !u!65 &65416914500931202
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 186968}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.5131497, y: 0.6500996, z: 0.5133442}
+  m_Center: {x: 0, y: 0.3250498, z: 0}
