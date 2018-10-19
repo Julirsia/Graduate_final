@@ -6,6 +6,7 @@ public class MoveCommand : Photon.PunBehaviour, ICommand
 {
     private Vector3 moveValue;
     private bool isJump;
+    private bool isCrouch;
     /*
      private Vector3 f_move;
      private bool m_Jump;
@@ -55,15 +56,15 @@ public class MoveCommand : Photon.PunBehaviour, ICommand
     }
     */
 
-     public MoveCommand(Actor actor, Vector3 moveVect , bool jump)
+     public MoveCommand(Actor actor, Vector3 moveVect , bool jump, bool crouch)
     {
         moveValue = moveVect;
         isJump = jump;
-    
+        isCrouch = crouch;
      }
     public void Execute(Actor actor)
     {
-        actor.Move(moveValue);//, isJump);
+        actor.Move(moveValue, isJump, isCrouch);
         //m_Jump = false;
     }
 }

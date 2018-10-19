@@ -27,12 +27,14 @@ public class Ai_Zombie : MonoBehaviour, IAi
 
     public ICommand GetCommand()
     {
+        /*
         if (Pattern() == AiState.Move)
             return new MoveCommand(actor, moveVector, isJump);
         else if (Pattern() == AiState.Attack)
             return new AttackCommand();
         else
-            return new IdleCommand();
+            return new IdleCommand();*/
+        return new AttackCommand();
     }
 
     /*AI가 갖고있는 패턴 실행자.*/

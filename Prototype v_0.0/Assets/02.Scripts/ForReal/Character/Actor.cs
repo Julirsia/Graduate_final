@@ -16,8 +16,13 @@ public class Actor : Photon.PunBehaviour
     private float m_MoveSpeedMultiplier = 1f;
     private float m_GroundCheckDistance = 0.1f;
 
+    private bool isGrounded;
     private Vector3 m_GroundNormal;
-    private bool m_IsGrounded;
+
+    private bool isCrouching;
+    private float m_CapsuleHeight;
+    private Vector3 m_CapsuleCenter;
+    private CapsuleCollider m_capsule;
 
     #region input values
     private float horizontal;
@@ -62,22 +67,28 @@ public class Actor : Photon.PunBehaviour
 
     }
 
-    public void Idle()
+    #region 캐릭터 상태제어
+
+    public void Idle( bool crouch)
     {
+        isCrouching = crouch;
+        
         m_Rigidbody.velocity = Vector3.zero;
 
-        anim.SetFloat("Forward", 0f, 0.1f, Time.deltaTime);
-        anim.SetFloat("Turn", 0f, 0.1f, Time.deltaTime);
-    }
+        m_ForwardAmount = 0f;
+        m_TurnAmount = 0f;
 
+        UpdateAnimator();
+    }
 
     /* 함수명 : Move
      * 목적 : 캐릭터의 움직임을 담당하는 메서드
      * 리턴값 : null
      * 파라미터 : move - input에서 받은 캐릭터 이동값
      */
-    public void Move(Vector3 move)
+    public void Move(Vector3 move, bool jump, bool crouch)
     {
+        isCrouching = crouch;
         if (move.magnitude > 1f)
             move.Normalize();
         if (m_Rigidbody.velocity.magnitude < moveSpeed)
@@ -89,37 +100,17 @@ public class Actor : Photon.PunBehaviour
         m_TurnAmount = Mathf.Atan2(move.x, move.z);     //바닥에서 유저의 회전값 a = atan move x/movez
         m_ForwardAmount = move.z;
         ApplyExtraTurnRotation();
-        anim.SetFloat("Forward", m_ForwardAmount, 0.1f, Time.deltaTime);
-        anim.SetFloat("Turn", m_TurnAmount, 0.1f, Time.deltaTime);
 
-
+        UpdateAnimator();
 
         float runCycle =
                 Mathf.Repeat(
                     anim.GetCurrentAnimatorStateInfo(0).normalizedTime + m_RunCycleLegOffset, 1);
         float jumpLeg = (runCycle < k_Half ? 1 : -1) * m_ForwardAmount;
 
-        if (m_IsGrounded)
+        if (isGrounded)
         {
             anim.SetFloat("JumpLeg", jumpLeg);
-        }
-
-
-        if (m_IsGrounded && move.magnitude > 0)
-        {
-            anim.speed = m_AnimSpeedMultiplier;
-        }
-        else if (m_Rigidbody.velocity.magnitude < moveSpeed - 1)
-        {
-            anim.speed = 0.8f;
-        }
-        else if (m_Rigidbody.velocity.magnitude >= moveSpeed - 1)
-        {
-            anim.speed = 0.9f;
-        }
-        else
-        {
-            anim.speed = 1.1f;
         }
     }
     public void Attack()
@@ -133,11 +124,14 @@ public class Actor : Photon.PunBehaviour
     {
         anim.SetTrigger("IsDie");
     }
-
     public void OnDamaged()
     {
         anim.SetTrigger("IsHit");
     }
+
+    #endregion
+
+    #region 캐릭터 점프
 
     /* 함수명 : Apply Extra Turn Rotation
      * 목적 : 캐릭터를 회전시키는 메서드
@@ -149,6 +143,31 @@ public class Actor : Photon.PunBehaviour
         float turnSpeed = Mathf.Lerp(m_StationaryTurnSpeed, m_MovingTurnSpeed, m_ForwardAmount);
         transform.Rotate(0, m_TurnAmount * turnSpeed * Time.deltaTime, 0);
     }
+    private void CheckGroundStatus()
+    {
+        RaycastHit hitInfo;
+#if UNITY_EDITOR
+
+        Debug.DrawLine(transform.position + (Vector3.up * 0.1f), transform.position + (Vector3.up * 0.1f) + (Vector3.down * m_GroundCheckDistance));
+#endif
+
+        if (Physics.Raycast(transform.position + (Vector3.up * 0.1f), Vector3.down, out hitInfo, m_GroundCheckDistance))
+        {
+            m_GroundNormal = hitInfo.normal;
+            isGrounded = true;
+            anim.applyRootMotion = true;
+        }
+        else
+        {
+            isGrounded = false;
+            m_GroundNormal = Vector3.up;
+            anim.applyRootMotion = false;
+        }
+    }
+
+    #endregion
+
+    #region 캐릭터 애니메이터 제어
 
     /* 함수명 : OnAnimatorMore() //콜백함수
      * 목적 : 애니메이터가 동작할때 콜되는 함수
@@ -161,25 +180,37 @@ public class Actor : Photon.PunBehaviour
         v.y = moveSpeed;
     }
 
-    void CheckGroundStatus()
+    /* 함수명 : Update Animator 
+     * 목적 : 애니메이터를 제어하는 함수.
+     * 리턴 : void
+     */
+    private void UpdateAnimator()
     {
-        RaycastHit hitInfo;
-#if UNITY_EDITOR
+        anim.SetFloat("Forward", m_ForwardAmount, 0.1f, Time.deltaTime);
+        anim.SetFloat("Turn", m_TurnAmount, 0.1f, Time.deltaTime);
+        anim.SetBool("Crouch", isCrouching);
+        //anim.SetBool("OnGround", isGrounded);
 
-        Debug.DrawLine(transform.position + (Vector3.up * 0.1f), transform.position + (Vector3.up * 0.1f) + (Vector3.down * m_GroundCheckDistance));
-#endif
-
-        if (Physics.Raycast(transform.position + (Vector3.up * 0.1f), Vector3.down, out hitInfo, m_GroundCheckDistance))
+        if (isGrounded)
         {
-            m_GroundNormal = hitInfo.normal;
-            m_IsGrounded = true;
-            anim.applyRootMotion = true;
-        }
-        else
-        {
-            m_IsGrounded = false;
-            m_GroundNormal = Vector3.up;
-            anim.applyRootMotion = false;
+            if (m_ForwardAmount > 0)
+            {
+                anim.speed = m_AnimSpeedMultiplier;
+            }
+            else if (m_Rigidbody.velocity.magnitude < moveSpeed - 1)
+            {
+                anim.speed = 0.8f;
+            }
+            else if (m_Rigidbody.velocity.magnitude >= moveSpeed - 1)
+            {
+                anim.speed = 0.9f;
+            }
+            else
+            {
+                anim.speed = 1.1f;
+            }
         }
     }
+
+    #endregion
 }
