@@ -7,6 +7,8 @@ using UnityEngine;
  */
 public class Actor : Photon.PunBehaviour
 {
+    public enum ActorType { player, enemy, boss};
+    public ActorType type;
 
     [SerializeField] float m_MovingTurnSpeed = 360;
     [SerializeField] float m_StationaryTurnSpeed = 180;
@@ -54,6 +56,12 @@ public class Actor : Photon.PunBehaviour
     Rigidbody m_Rigidbody;
     #endregion
 
+
+    #region Attack values
+    public int currentWeaponCode = 0;
+    private int pressedAttackType = 0;
+    #endregion
+
     void Awake()
     {
         m_Rigidbody = GetComponent<Rigidbody>();  // Start에서 Awake로 이동
@@ -78,7 +86,7 @@ public class Actor : Photon.PunBehaviour
         m_ForwardAmount = 0f;
         m_TurnAmount = 0f;
 
-        UpdateAnimator();
+        UpdateMoveAnimator();
     }
 
     /* 함수명 : Move
@@ -101,7 +109,7 @@ public class Actor : Photon.PunBehaviour
         m_ForwardAmount = move.z;
         ApplyExtraTurnRotation();
 
-        UpdateAnimator();
+        UpdateMoveAnimator();
 
         float runCycle =
                 Mathf.Repeat(
@@ -112,12 +120,19 @@ public class Actor : Photon.PunBehaviour
         {
             anim.SetFloat("JumpLeg", jumpLeg);
         }
+        else
+        {
+           
+        }
     }
-    public void Attack()
+    public void Attack(int attackType)
     {
-        Debug.Log("Attack");
-        anim.SetBool("IsAttack", true);
-        anim.SetTrigger("CloseAttack");
+        //Debug.Log("Attack");
+        pressedAttackType = attackType;
+
+        anim.SetInteger("WeaponType", currentWeaponCode);
+        anim.SetInteger("AttackType", pressedAttackType);
+        anim.SetTrigger("Attack");
 
     }
     public void Die()
@@ -131,7 +146,7 @@ public class Actor : Photon.PunBehaviour
 
     #endregion
 
-    #region 캐릭터 점프
+    #region 캐릭터 움직임 관련
 
     /* 함수명 : Apply Extra Turn Rotation
      * 목적 : 캐릭터를 회전시키는 메서드
@@ -184,7 +199,7 @@ public class Actor : Photon.PunBehaviour
      * 목적 : 애니메이터를 제어하는 함수.
      * 리턴 : void
      */
-    private void UpdateAnimator()
+    private void UpdateMoveAnimator()
     {
         anim.SetFloat("Forward", m_ForwardAmount, 0.1f, Time.deltaTime);
         anim.SetFloat("Turn", m_TurnAmount, 0.1f, Time.deltaTime);

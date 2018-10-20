@@ -34,7 +34,7 @@ public class Ai_Zombie : MonoBehaviour, IAi
             return new AttackCommand();
         else
             return new IdleCommand();*/
-        return new AttackCommand();
+        return new IdleCommand(false);
     }
 
     /*AI가 갖고있는 패턴 실행자.*/

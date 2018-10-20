@@ -26,8 +26,9 @@ public class InputHandler : MonoBehaviour //: Photon.PunBehaviour
     private bool isJump;
     private bool isCrouch;
     private Vector3 moveVector = Vector3.zero;
-    #endregion
 
+    private int attackType =0;
+    #endregion
 
     private void Start()
     {
@@ -55,7 +56,7 @@ public class InputHandler : MonoBehaviour //: Photon.PunBehaviour
         if (IsPressed(userInput.Move))
             return new MoveCommand(actor, moveVector, isJump, isCrouch);
         else if (IsPressed(userInput.Attack))
-            return new AttackCommand();
+            return new AttackCommand(attackType);
         else
             return new IdleCommand(isCrouch);
     }
@@ -80,7 +81,9 @@ public class InputHandler : MonoBehaviour //: Photon.PunBehaviour
             moveVector = camRotPivot.forward * vertInput + camRotPivot.right * horizInput;
             pressedBtn = userInput.Move;
         }
-        else if (Input.GetMouseButtonDown(0))
+
+        //TODO : 누른 버튼에 따른 AttackType command
+        if (Input.GetMouseButtonDown(0))
             pressedBtn = userInput.Attack;
 
         return
