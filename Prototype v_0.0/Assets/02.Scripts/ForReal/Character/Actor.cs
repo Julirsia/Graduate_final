@@ -44,9 +44,13 @@ public class Actor : Photon.PunBehaviour
     #region 나중에 DB로 빠질 부분
     public int actorID = 0;//추후 액터 ID값에 따라 데이터를 받아오게 할 것 
 
+    public int fullHp = 100;
+    public int currentHp;
+
     public float moveSpeed;
     public float jumpSpeed;
     #endregion
+
 
     #region components
     public Animator anim;
@@ -58,12 +62,18 @@ public class Actor : Photon.PunBehaviour
 
 
     #region Attack values
-    public int currentWeaponCode = 0;
+    private bool isHit = false;
+    public int currentWeaponCode = 0;   //0 : 맨손, 1 :나이프,  2 :리볼버,  3 :다이너마이트
     private int pressedAttackType = 0;
+    public Transform bareFist;
+    public Transform currentWeapon;
+
+    public Color originColor;
+    public Renderer rend;
     #endregion
 
     void Awake()
-    {
+    { 
         m_Rigidbody = GetComponent<Rigidbody>();  // Start에서 Awake로 이동
         anim = GetComponent<Animator>();
     }
@@ -72,7 +82,7 @@ public class Actor : Photon.PunBehaviour
     {
         myTr = transform;
         m_Rigidbody.constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationY | RigidbodyConstraints.FreezeRotationZ;
-
+        currentHp = fullHp;
     }
 
     #region 캐릭터 상태제어
@@ -139,11 +149,6 @@ public class Actor : Photon.PunBehaviour
     {
         anim.SetTrigger("IsDie");
     }
-    public void OnDamaged()
-    {
-        anim.SetTrigger("IsHit");
-    }
-
     #endregion
 
     #region 캐릭터 움직임 관련
@@ -225,6 +230,40 @@ public class Actor : Photon.PunBehaviour
                 anim.speed = 1.1f;
             }
         }
+    }
+
+    #endregion
+
+    #region 캐릭터 전투
+    public void CloseCombatActive()
+    {
+        currentWeapon.GetComponent<Collider>().enabled = true;
+    }
+
+    public void CloseCombatEnd()
+    {
+        currentWeapon.GetComponent<Collider>().enabled = true;
+    }
+    
+    public void OnDamaged(int damage)
+    {
+        currentHp -= damage;
+        if (currentHp <= 0)
+        {
+            //dieAction
+        }
+        anim.SetTrigger("IsHit");
+        StartCoroutine(ShowDamage());
+
+        UIManager.instance.myHpChange(fullHp, currentHp, actorID);
+    }
+
+    protected IEnumerator ShowDamage()
+    {
+        isHit = true; //make is hit True.
+        yield return new WaitForSeconds(0.3f);//go to update to make player red
+        isHit = false;// stop showing red
+        rend.material.color = originColor;// return to original color
     }
 
     #endregion

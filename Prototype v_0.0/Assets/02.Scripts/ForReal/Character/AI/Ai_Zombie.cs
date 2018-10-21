@@ -4,7 +4,7 @@ using UnityEngine;
 
 //목적 : 좀비의 Actor을 조정하기 위한 클래스.
 //유저의 이동은 Input Handler를 베이스로 하지만 AI는 AI 인터페이스를 오버라이드한 클래스에서 액터를 움직인다.
-
+//stack FSM패턴 기반 설계
 public class Ai_Zombie : MonoBehaviour, IAi
 {
     private Stack<AiState> stateStack;  //이전의 상태가 필요할때 스택에 넣어서 기억해두는 용도
@@ -37,7 +37,9 @@ public class Ai_Zombie : MonoBehaviour, IAi
         return new IdleCommand(false);
     }
 
-    /*AI가 갖고있는 패턴 실행자.*/
+    /* 목적 : Iai가 갖고있는 패턴 실행자.
+     * 
+     */
     public AiState Pattern()
     {
         AiState state;

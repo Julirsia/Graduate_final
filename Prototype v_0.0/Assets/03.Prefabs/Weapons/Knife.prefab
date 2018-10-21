@@ -22,6 +22,7 @@ GameObject:
   - component: {fileID: 33823790708316878}
   - component: {fileID: 23208866906630464}
   - component: {fileID: 65393196262309052}
+  - component: {fileID: 114485460927700282}
   m_Layer: 0
   m_Name: Knife
   m_TagString: Untagged
@@ -36,7 +37,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1617125508534860}
   m_LocalRotation: {x: -0.68985605, y: -0.1285596, z: 0.70112085, w: -0.12649406}
-  m_LocalPosition: {x: -0.097, y: 0.024, z: 0.039}
+  m_LocalPosition: {x: 6.263, y: 2.41, z: 5.334}
   m_LocalScale: {x: 0.62500006, y: 0.62499994, z: 0.725}
   m_Children: []
   m_Father: {fileID: 0}
@@ -95,3 +96,19 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.044309497, y: 0.17487803, z: 0.73180073}
   m_Center: {x: 0.0000000029229716, y: -0.0329124, z: 0.5571334}
+--- !u!114 &114485460927700282
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1617125508534860}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d913676539fe3f64f923dfa13942a6dd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ItemCode: 0
+  type: 1
+  weaponType: 0
+  weaponCode: 1
+  attackPower: 25
