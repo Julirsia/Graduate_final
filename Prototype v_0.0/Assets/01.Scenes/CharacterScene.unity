@@ -1435,6 +1435,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gameMode: 0
   modeUI: []
+  HpBar: []
+  HpText: []
 --- !u!1001 &75659137
 Prefab:
   m_ObjectHideFlags: 0
@@ -6291,7 +6293,7 @@ GameObject:
   - component: {fileID: 447732248}
   - component: {fileID: 447732247}
   m_Layer: 5
-  m_Name: Panel
+  m_Name: FriendHp Panel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -21130,7 +21132,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1430078806
 RectTransform:
   m_ObjectHideFlags: 0
@@ -25788,7 +25790,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1699281016
 RectTransform:
   m_ObjectHideFlags: 0

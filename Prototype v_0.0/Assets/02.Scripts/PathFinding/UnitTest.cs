@@ -4,7 +4,8 @@ using UnityEngine;
 
 
 //임시클래스 나중에 AI쪽으로 이동할 예정
-public class UnitTest : MonoBehaviour {
+public class UnitTest : MonoBehaviour
+{
 
     public Transform target;
     public float speed = 1;
