@@ -17,6 +17,7 @@ public class Actor : Photon.PunBehaviour
     private  float m_AnimSpeedMultiplier = 1f;
     private float m_MoveSpeedMultiplier = 1f;
     private float m_GroundCheckDistance = 0.1f;
+    [SerializeField] private float speed;
 
     private bool isGrounded;
     private Vector3 m_GroundNormal;
@@ -48,6 +49,7 @@ public class Actor : Photon.PunBehaviour
     public int currentHp;
 
     public float moveSpeed;
+    public float crouchSpeed;
     public float jumpSpeed;
     #endregion
 
@@ -107,10 +109,16 @@ public class Actor : Photon.PunBehaviour
     public void Move(Vector3 move, bool jump, bool crouch)
     {
         isCrouching = crouch;
+
+        if (isCrouching)
+            speed = crouchSpeed;
+        else
+            speed = moveSpeed;
+        
         if (move.magnitude > 1f)
             move.Normalize();
-        if (m_Rigidbody.velocity.magnitude < moveSpeed)
-            m_Rigidbody.AddForce(move * moveSpeed);
+        if (m_Rigidbody.velocity.magnitude < speed)
+            m_Rigidbody.AddForce(move * speed);
 
         move = transform.InverseTransformDirection(move);
         move = Vector3.ProjectOnPlane(move, m_GroundNormal);
@@ -197,7 +205,7 @@ public class Actor : Photon.PunBehaviour
     {
         Vector3 v = (anim.deltaPosition * m_MoveSpeedMultiplier) / Time.deltaTime;
 
-        v.y = moveSpeed;
+        v.y = speed;
     }
 
     /* 함수명 : Update Animator 
@@ -217,11 +225,11 @@ public class Actor : Photon.PunBehaviour
             {
                 anim.speed = m_AnimSpeedMultiplier;
             }
-            else if (m_Rigidbody.velocity.magnitude < moveSpeed - 1)
+            else if (m_Rigidbody.velocity.magnitude <  speed - 1)
             {
                 anim.speed = 0.8f;
             }
-            else if (m_Rigidbody.velocity.magnitude >= moveSpeed - 1)
+            else if (m_Rigidbody.velocity.magnitude >= speed - 1)
             {
                 anim.speed = 0.9f;
             }
