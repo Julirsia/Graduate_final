@@ -9,11 +9,12 @@ public class Weapon : Item
     public WeaponType weaponType = WeaponType.close_Combat;
     public int weaponCode;  //캐릭터 애니메이션 파라미터
     public int attackPower =0;
-
+    private Vector3 charHandPos;
 
     public override void GoInventory(Actor actor)
     {
         base.GoInventory(actor);
+        charHandPos = transform.position;
         actor.currentWeaponCode = weaponCode;
         
     }
@@ -21,6 +22,7 @@ public class Weapon : Item
      */
     public override void Action(Actor actor)
     {
+        Debug.Log("Action");
         actor.OnDamaged(attackPower);
     }
 

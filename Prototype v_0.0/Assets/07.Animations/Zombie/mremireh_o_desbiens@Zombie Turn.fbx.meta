@@ -121,7 +121,7 @@ ModelImporter:
     400110: Spine
     400112: Spine1
     400114: Spine2
-    7400000: Zombie Turn
+    7400000: Zombie Turn left
     9500000: //RootNode
   externalObjects: {}
   materials:
@@ -151,7 +151,7 @@ ModelImporter:
     extraUserProperties: []
     clipAnimations:
     - serializedVersion: 16
-      name: Zombie Turn
+      name: Zombie Turn left
       takeName: mixamo.com
       firstFrame: 0
       lastFrame: 179

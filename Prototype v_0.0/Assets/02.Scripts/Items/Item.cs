@@ -12,15 +12,22 @@ public abstract class Item : MonoBehaviour
     public enum ItemStatus { onField, onInventory, equiped}
     protected ItemStatus status;
 
-    protected Actor owner;
+    public Actor owner;
 
+    private void Start()
+    {
+        owner = transform.parent.GetComponent<Actor>();
+        status = ItemStatus.equiped;
+    }
     public void GetData()
     { }
 
     public virtual void GoInventory(Actor actor)
     {
+        //임시 테스트용
+        owner = actor;
         actor.currentWeapon = transform;
-
+        //status = ItemStatus.onInventory;
     }
 
     /* 파라미터 : 해당 액션이 작용할 actor*/
@@ -35,6 +42,11 @@ public abstract class Item : MonoBehaviour
                 GoInventory(coll.gameObject.GetComponent<Actor>());
             //인벤토리에 들어가게 되면 근접무기 외엔 이 부분이 활성화 되지 않슴
             else if (coll.gameObject.GetComponent<Actor>() != owner)
+                Action(coll.gameObject.GetComponent<Actor>());
+        }
+        else if (coll.tag == "ACTOR")
+        {
+            if (coll.gameObject.GetComponent<Actor>() != owner)
                 Action(coll.gameObject.GetComponent<Actor>());
         }
     }

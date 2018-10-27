@@ -32,15 +32,12 @@ public class AiHandler : MonoBehaviour , IAi
 
     public ICommand GetCommand()
     {
-
         if (Pattern() == AiState.Move)
             return new MoveCommand(actor, moveVector, isJump, false);
         else if (Pattern() == AiState.Attack)
             return new AttackCommand(0);
         else
             return new IdleCommand(false);
-
-        //return new IdleCommand(false);
     }
 
     /* 목적 : ai actor 가 갖고있는 패턴 실행자.
@@ -48,7 +45,9 @@ public class AiHandler : MonoBehaviour , IAi
      */
     public AiState Pattern()
     {
-        return AiState.Idle;
+        if (targetIndex == path.Length)
+            return AiState.Idle;
+        return AiState.Move;
     }
 
     public void OnPathFound(Vector3[] newPath, bool pathSuccessful)
@@ -71,17 +70,37 @@ public class AiHandler : MonoBehaviour , IAi
 
         while (true)
         {
-            if (transform.position == currentWaypoint)
+            if (Vector3.Distance(transform.position,currentWaypoint) < 1f)
             {
+                Debug.Log("Set");
                 targetIndex++;
                 if (targetIndex >= path.Length)
                     yield break;
                 currentWaypoint = path[targetIndex];
             }
-            transform.position = Vector3.MoveTowards(transform.position, currentWaypoint, speed);
+
+            moveVector = currentWaypoint - transform.position;
             yield return null;
         }
     }
 
 
+    public void OnDrawGizmos()
+    {
+        if (path != null)
+        {
+            for (int i = targetIndex; i < path.Length; i++)
+            {
+                Gizmos.color = Color.black;
+                Gizmos.DrawCube(path[i], Vector3.one);
+
+                if (i == targetIndex)
+                    Gizmos.DrawLine(transform.position, path[i]);
+
+                else
+                    Gizmos.DrawLine(path[i - 1], path[i]);
+
+            }
+        }
+    }
 }

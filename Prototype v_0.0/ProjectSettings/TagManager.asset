@@ -12,6 +12,8 @@ TagManager:
   - FloorParent
   - Street
   - FIELD_OBJ
+  - BOSS
+  - ACTOR
   layers:
   - Default
   - TransparentFX

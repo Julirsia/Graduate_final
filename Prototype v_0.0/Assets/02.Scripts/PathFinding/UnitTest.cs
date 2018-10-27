@@ -36,7 +36,8 @@ public class UnitTest : MonoBehaviour
 
         while (true)
         {
-            if(transform.position == currentWaypoint)
+            Debug.Log("FollowPathTrue");
+            if (transform.position == currentWaypoint)
             {
                 targetIndex++;
                 if (targetIndex >= path.Length)

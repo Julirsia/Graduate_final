@@ -23,8 +23,11 @@ public class Actor : Photon.PunBehaviour
     private Vector3 m_GroundNormal;
 
     private bool isCrouching;
+    //캡슐콜라이더의 오리지널 값
     private float m_CapsuleHeight;
     private Vector3 m_CapsuleCenter;
+    private float crouchCapsuleHeight;
+    private Vector3 crouchCapsuleCenter;
     private CapsuleCollider m_capsule;
 
     #region input values
@@ -57,8 +60,8 @@ public class Actor : Photon.PunBehaviour
     #region components
     public Animator anim;
     private Transform myTr;
-    float m_ForwardAmount;
-    float m_TurnAmount;
+    [SerializeField] float m_ForwardAmount;
+    [SerializeField] float m_TurnAmount;
     Rigidbody m_Rigidbody;
     #endregion
 
@@ -69,6 +72,7 @@ public class Actor : Photon.PunBehaviour
     private int pressedAttackType = 0;
     public Transform bareFist;
     public Transform currentWeapon;
+    public Collider curWeaponCol;
 
     public Color originColor;
     public Renderer rend;
@@ -85,6 +89,16 @@ public class Actor : Photon.PunBehaviour
         myTr = transform;
         m_Rigidbody.constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationY | RigidbodyConstraints.FreezeRotationZ;
         currentHp = fullHp;
+        OnWeaponChanged(currentWeaponCode);
+
+        m_capsule = GetComponent<CapsuleCollider>();
+        m_CapsuleCenter = m_capsule.center;
+        m_CapsuleHeight = m_capsule.height;
+        crouchCapsuleCenter = new Vector3(0f, 0.695f, 0f);
+        crouchCapsuleHeight = 1.39f;
+
+        speed = moveSpeed;
+        //UIManager.instance.myHpChange(fullHp, currentHp, actorID);
     }
 
     #region 캐릭터 상태제어
@@ -92,7 +106,7 @@ public class Actor : Photon.PunBehaviour
     public void Idle( bool crouch)
     {
         isCrouching = crouch;
-        
+
         m_Rigidbody.velocity = Vector3.zero;
 
         m_ForwardAmount = 0f;
@@ -110,11 +124,6 @@ public class Actor : Photon.PunBehaviour
     {
         isCrouching = crouch;
 
-        if (isCrouching)
-            speed = crouchSpeed;
-        else
-            speed = moveSpeed;
-        
         if (move.magnitude > 1f)
             move.Normalize();
         if (m_Rigidbody.velocity.magnitude < speed)
@@ -145,13 +154,11 @@ public class Actor : Photon.PunBehaviour
     }
     public void Attack(int attackType)
     {
-        //Debug.Log("Attack");
         pressedAttackType = attackType;
 
         anim.SetInteger("WeaponType", currentWeaponCode);
         anim.SetInteger("AttackType", pressedAttackType);
         anim.SetTrigger("Attack");
-
     }
     public void Die()
     {
@@ -193,6 +200,24 @@ public class Actor : Photon.PunBehaviour
         }
     }
 
+
+    /*애니메이션 전환시 호출부분*/
+    //크라우칭 상태에서 콜라이더와 속도를 바꿔준다.
+    public void SetCrouchState()
+    {
+        speed = crouchSpeed;
+        m_capsule.center = crouchCapsuleCenter;
+        m_capsule.height = crouchCapsuleHeight;
+    }
+    //크라우칭 상태가 끝나고 콜라이더와 속도를 돌려놓는다.
+    public void SetNormalState()
+    {
+        speed = moveSpeed;
+        m_capsule.height = m_CapsuleHeight;
+        m_capsule.center = m_CapsuleCenter;
+    }
+
+
     #endregion
 
     #region 캐릭터 애니메이터 제어
@@ -205,9 +230,11 @@ public class Actor : Photon.PunBehaviour
     {
         Vector3 v = (anim.deltaPosition * m_MoveSpeedMultiplier) / Time.deltaTime;
 
-        v.y = speed;
-    }
+        //v.y = speed;
 
+        if (isHit)
+            TurnRed();
+    }
     /* 함수명 : Update Animator 
      * 목적 : 애니메이터를 제어하는 함수.
      * 리턴 : void
@@ -245,18 +272,18 @@ public class Actor : Photon.PunBehaviour
     #region 캐릭터 전투
     public void CloseCombatActive()
     {
-        currentWeapon.GetComponent<Collider>().enabled = true;
+        curWeaponCol.enabled = true;
     }
 
     public void CloseCombatEnd()
     {
-        currentWeapon.GetComponent<Collider>().enabled = true;
+        curWeaponCol.enabled = false;
     }
     
     public void OnDamaged(int damage)
     {
         currentHp -= damage;
-        if (currentHp <= 0)
+        if (currentHp <= 0) 
         {
             //dieAction
         }
@@ -266,7 +293,22 @@ public class Actor : Photon.PunBehaviour
         UIManager.instance.myHpChange(fullHp, currentHp, actorID);
     }
 
-    protected IEnumerator ShowDamage()
+    public void OnWeaponChanged(int changeWeaponCode)
+    {
+        //획득한 무기를 손에 장착
+        if (changeWeaponCode == 0)
+            currentWeapon = bareFist;
+        currentWeaponCode = changeWeaponCode;
+        curWeaponCol = currentWeapon.GetComponent<Collider>();
+        curWeaponCol.enabled = false;
+    }
+
+    public void TurnRed()
+    {
+        float lerp = Mathf.PingPong(Time.time, 0.1f) / 0.1f;
+        rend.material.color = Color.Lerp(originColor, Color.red, lerp);
+    }
+    public IEnumerator ShowDamage()
     {
         isHit = true; //make is hit True.
         yield return new WaitForSeconds(0.3f);//go to update to make player red

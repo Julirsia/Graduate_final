@@ -60,7 +60,6 @@ public class Ai_Zombie : MonoBehaviour, IAi
     {
         requestMgr = GetComponent<PathRequestMgr>();
         grid = GetComponent<Grid>();
-
     }
 
     public void StartFindPath(Vector3 startPos, Vector3 targetPos)
