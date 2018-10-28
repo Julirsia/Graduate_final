@@ -10,7 +10,8 @@ using clientData;
 public class Ai_Zombie : AiHandler  
 {
     public int zombiePhase = 1;
-
+    public bool actionFlag = false;
+    private AiState state;
     //AI 제어부. Actor를 실질적으로 제어하는 패턴부분
     public override AiState Pattern()
     {
@@ -21,12 +22,27 @@ public class Ai_Zombie : AiHandler
         }
         else
         {
-            if (targetIndex == path.Length)
+            if (path !=null && targetIndex == path.Length)
                 return AiState.Idle;
-            return AiState.Move;
+
+            else if (!actionFlag)
+            {
+                StartCoroutine(ZombieAction());
+            }
+            return state;
+
         }
     }
 
-    
+    IEnumerator ZombieAction()
+    {
+        actionFlag = true;
+        state = AiState.Move;
+        yield return new WaitForSeconds(5f);
+        state = AiState.Idle;
+        yield return new WaitForSeconds(3f);
+        actionFlag = false;
+
+    }
 
 }
