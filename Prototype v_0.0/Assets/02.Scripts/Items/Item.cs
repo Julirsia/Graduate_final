@@ -1,22 +1,21 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using clientData;
 
 public abstract class Item : MonoBehaviour
 {
     public int ItemCode;
-    public enum ItemType { heal, weapon, construction, };
     public ItemType type;
 
     protected int itemID;
-    public enum ItemStatus { onField, onInventory, equiped}
     protected ItemStatus status;
 
     public Actor owner;
 
     private void Start()
     {
-        owner = transform.parent.GetComponent<Actor>();
+        owner = transform.root.GetComponent<Actor>();
         status = ItemStatus.equiped;
     }
     public void GetData()
@@ -27,6 +26,7 @@ public abstract class Item : MonoBehaviour
         //임시 테스트용
         owner = actor;
         actor.currentWeapon = transform;
+        status = ItemStatus.equiped;
         //status = ItemStatus.onInventory;
     }
 

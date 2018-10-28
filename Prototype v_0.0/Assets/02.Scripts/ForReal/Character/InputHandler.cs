@@ -43,9 +43,11 @@ public class InputHandler : MonoBehaviour //: Photon.PunBehaviour
 
     void Update()
     {
-        command = GetCommand();
-        command.Execute(actor);
-
+        if (!actor.deathSignal)
+        {
+            command = GetCommand();
+            command.Execute(actor);
+        }   
     }
 
     /*유저의 키 입력값을 받아 그 입력에 해당하는 Command를 리턴하는 메서드

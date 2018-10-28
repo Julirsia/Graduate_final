@@ -15,4 +15,10 @@ public class Trap : Item
         
     }
 
+    IEnumerator AttracterDuration()
+    {
+
+        yield return new WaitForSeconds(duration);
+        gameObject.SetActive(false);
+    }
 }

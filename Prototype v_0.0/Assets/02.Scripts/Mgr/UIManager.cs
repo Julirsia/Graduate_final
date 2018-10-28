@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using clientData;
 
 public class UIManager : MonoBehaviour
 {
@@ -11,6 +12,8 @@ public class UIManager : MonoBehaviour
 
     public Image[] HpBar;
     public Text[] HpText;
+
+    public Image[] BossHpList;
 
     private void Awake()
     {
@@ -22,11 +25,20 @@ public class UIManager : MonoBehaviour
      * 이게 어려울 경우, Actor의 hp를 전부 UI매니저 쪽에서 서버에서 받아서
      * 일일히 표시하는 방법이 있을듯
      */
-    public void myHpChange(int fullHp, int currHp, int actorCode)
+    public void hpChange(int fullHp, int currHp, int actorCode, ActorType type)
     {
-        //HpText[0].text = currHp.ToString() + "/" + fullHp.ToString();
-        //HpBar[0].fillAmount = (float)currHp / (float)fullHp;
-    }
+        if (type == ActorType.boss)
+        {
+            int count = currHp / 200;
+            if (fullHp > 200)
+                HpText[actorCode / 1000].text = count.ToString();
 
-    
+            HpBar[actorCode / 1000].fillAmount = (float)(currHp - 200 * count) / (float)fullHp;
+        }
+        else
+        {
+            HpText[actorCode / 1000].text = currHp.ToString() + "/" + fullHp.ToString();
+            HpBar[actorCode / 1000].fillAmount = (float)currHp / (float)fullHp;
+        }
+    }
 }

@@ -1,14 +1,15 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using clientData;
 
 /* 목적 : 게임 캐릭터의 베이스가되는 액터클래스.
  * 역할 : 명령 객체의 지시를 받는 리시버.
  */
 public class Actor : Photon.PunBehaviour
 {
-    public enum ActorType { player, enemy, boss};
     public ActorType type;
+    public bool deathSignal = false;
 
     [SerializeField] float m_MovingTurnSpeed = 360;
     [SerializeField] float m_StationaryTurnSpeed = 180;
@@ -98,7 +99,7 @@ public class Actor : Photon.PunBehaviour
         crouchCapsuleHeight = 1.39f;
 
         speed = moveSpeed;
-        //UIManager.instance.myHpChange(fullHp, currentHp, actorID);
+        UIManager.instance.hpChange(fullHp, currentHp, actorID, type);
     }
 
     #region 캐릭터 상태제어
@@ -160,9 +161,14 @@ public class Actor : Photon.PunBehaviour
         anim.SetInteger("AttackType", pressedAttackType);
         anim.SetTrigger("Attack");
     }
+    public void LockOn(Transform target)
+    {
+        myTr.LookAt(target);
+    }
     public void Die()
     {
-        anim.SetTrigger("IsDie");
+        anim.SetTrigger("Dead");
+        m_capsule.enabled = false;
     }
     #endregion
 
@@ -229,7 +235,6 @@ public class Actor : Photon.PunBehaviour
     public void OnAnimatorMove()
     {
         Vector3 v = (anim.deltaPosition * m_MoveSpeedMultiplier) / Time.deltaTime;
-
         //v.y = speed;
 
         if (isHit)
@@ -290,7 +295,12 @@ public class Actor : Photon.PunBehaviour
         anim.SetTrigger("IsHit");
         StartCoroutine(ShowDamage());
 
-        UIManager.instance.myHpChange(fullHp, currentHp, actorID);
+        if (currentHp < 0)
+        {
+            deathSignal = true;
+            Die();
+        }
+        UIManager.instance.hpChange(fullHp, currentHp, actorID, type);
     }
 
     public void OnWeaponChanged(int changeWeaponCode)

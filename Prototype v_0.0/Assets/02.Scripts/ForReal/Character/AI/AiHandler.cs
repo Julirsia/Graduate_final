@@ -2,32 +2,46 @@
 using System.Collections.Generic;
 using UnityEngine;
 using System;
+using clientData;
 
 public class AiHandler : MonoBehaviour , IAi
 {
-    private Stack<AiState> stateStack;  //이전의 상태가 필요할때 스택에 넣어서 기억해두는 용도
+    protected Stack<AiState> stateStack;  //이전의 상태가 필요할때 스택에 넣어서 기억해두는 용도
     private ICommand command;
     public Actor actor;
 
     private bool isJump = false;
     public Vector3 moveVector;
 
-    public Transform target;
-    public float speed = 1;
-    Vector3[] path;
-    int targetIndex;
+    public Transform finalTarget;
+    public Transform currnetTarget;
+    protected Vector3[] path;
+    protected int targetIndex=0;
 
+    public bool aggroFlag { get { return aggro; } set { aggro = value; } }
+    public bool aggro;
 
     private void Start()
     {
         actor = GetComponent<Actor>();
-        PathRequestMgr.RequestPath(transform.position, target.position, OnPathFound);
+        PathRequestMgr.RequestPath(transform.position, finalTarget.position, OnPathFound);
+    }
+
+    public void RefreshPath()
+    {
+        Debug.Log("RefreshPath");
+        targetIndex = 0;
+        Array.Clear(path,0,path.Length);
+        PathRequestMgr.RequestPath(transform.position, currnetTarget.position, OnPathFound);
     }
 
     private void Update()
     {
-        command = GetCommand();
-        command.Execute(actor);
+        if (!actor.deathSignal)
+        {
+            command = GetCommand();
+            command.Execute(actor);
+        }
     }
 
     public ICommand GetCommand()
@@ -35,7 +49,10 @@ public class AiHandler : MonoBehaviour , IAi
         if (Pattern() == AiState.Move)
             return new MoveCommand(actor, moveVector, isJump, false);
         else if (Pattern() == AiState.Attack)
+        {
+            actor.LockOn(currnetTarget); 
             return new AttackCommand(0);
+        }
         else
             return new IdleCommand(false);
     }
@@ -43,11 +60,9 @@ public class AiHandler : MonoBehaviour , IAi
     /* 목적 : ai actor 가 갖고있는 패턴 실행자.
      * 
      */
-    public AiState Pattern()
+    public virtual AiState Pattern()
     {
-        if (targetIndex == path.Length)
-            return AiState.Idle;
-        return AiState.Move;
+        return AiState.Idle;
     }
 
     public void OnPathFound(Vector3[] newPath, bool pathSuccessful)
@@ -62,7 +77,6 @@ public class AiHandler : MonoBehaviour , IAi
         }
     }
 
-    //이부분 FollowPath를 Move로 이동시켜야.
     IEnumerator FollowPath()
     {
         Debug.Log("FollowPath");
@@ -84,8 +98,8 @@ public class AiHandler : MonoBehaviour , IAi
         }
     }
 
-
-    public void OnDrawGizmos()
+    //디버그용 메서드. 길찾기 알고리즘을 통해 찾은 길을 
+  /*  public void OnDrawGizmos()
     {
         if (path != null)
         {
@@ -102,5 +116,5 @@ public class AiHandler : MonoBehaviour , IAi
 
             }
         }
-    }
+    }*/
 }
