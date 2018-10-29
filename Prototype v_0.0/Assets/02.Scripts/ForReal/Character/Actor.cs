@@ -18,7 +18,7 @@ public class Actor : Photon.PunBehaviour
     private  float m_AnimSpeedMultiplier = 1f;
     private float m_MoveSpeedMultiplier = 1f;
     private float m_GroundCheckDistance = 0.1f;
-    [SerializeField] private float speed;
+    public float speed;
 
     private bool isGrounded;
     private Vector3 m_GroundNormal;
@@ -124,11 +124,17 @@ public class Actor : Photon.PunBehaviour
     public void Move(Vector3 move, bool jump, bool crouch)
     {
         isCrouching = crouch;
-
+       
+        
+        
         if (move.magnitude > 1f)
             move.Normalize();
-        if (m_Rigidbody.velocity.magnitude < speed)
-            m_Rigidbody.AddForce(move * speed);
+
+        if (type == ActorType.NPC)
+            myTr.position += move.normalized * speed * Time.deltaTime;
+        else
+           if (m_Rigidbody.velocity.magnitude < speed)
+                m_Rigidbody.AddForce(move * speed);
 
         move = transform.InverseTransformDirection(move);
         move = Vector3.ProjectOnPlane(move, m_GroundNormal);
@@ -150,8 +156,9 @@ public class Actor : Photon.PunBehaviour
         }
         else
         {
-           
+
         }
+        
     }
     public void Attack(int attackType)
     {
@@ -168,7 +175,6 @@ public class Actor : Photon.PunBehaviour
     public void Die()
     {
         anim.SetTrigger("Dead");
-        m_capsule.enabled = false;
     }
     #endregion
 
@@ -287,20 +293,27 @@ public class Actor : Photon.PunBehaviour
     
     public void OnDamaged(int damage)
     {
-        currentHp -= damage;
-        if (currentHp <= 0) 
+        if (currentHp > 0)
         {
-            //dieAction
-        }
-        anim.SetTrigger("IsHit");
-        StartCoroutine(ShowDamage());
+            currentHp -= damage;
+            if (currentHp <= 0)
+            {
+                //dieAction
+            }
+            anim.SetTrigger("IsHit");
+            StartCoroutine(ShowDamage());
 
-        if (currentHp < 0)
-        {
-            deathSignal = true;
-            Die();
+            if (currentHp <= 0)
+            {
+                deathSignal = true;
+                if (type == ActorType.NPC || type == ActorType.player)
+                    UIManager.instance.ActiveGameOverPanel();
+                else if(type == ActorType.boss)
+                    UIManager.instance.ActiveVictoryPanel();
+                Die();
+            }
+            UIManager.instance.hpChange(fullHp, currentHp, actorID, type);
         }
-        UIManager.instance.hpChange(fullHp, currentHp, actorID, type);
     }
 
     public void OnWeaponChanged(int changeWeaponCode)
@@ -326,5 +339,13 @@ public class Actor : Photon.PunBehaviour
         rend.material.color = originColor;// return to original color
     }
 
+    public void CharacterStopEvent()
+    {
+        speed = 0f;
+    }
+    public void CharacterMoveEvent()
+    {
+        speed = moveSpeed;
+    }
     #endregion
 }

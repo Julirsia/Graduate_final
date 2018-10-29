@@ -31,4 +31,14 @@ public class TitleManager : MonoBehaviour
         yield return new WaitForSeconds(4f);
         ComingSoonPanel.SetActive(false);
     }
+
+    public void ButtonActionLoadScene_Game()
+    {
+        SceneManager.LoadScene(1);
+    }
+
+    public void ButtonActionLoadScene_Title()
+    {
+        SceneManager.LoadScene(1);
+    }
 }

@@ -18,7 +18,8 @@ public class Ai_Zombie : AiHandler
         if (aggroFlag)
         {
             RefreshPath();
-            return AiState.Attack;
+            StartCoroutine(ZombieAttackAction());
+            return state;
         }
         else
         {
@@ -27,22 +28,29 @@ public class Ai_Zombie : AiHandler
 
             else if (!actionFlag)
             {
-                StartCoroutine(ZombieAction());
+                StartCoroutine(ZombieNormalAction());
             }
             return state;
 
         }
     }
 
-    IEnumerator ZombieAction()
+    IEnumerator ZombieNormalAction()
     {
         actionFlag = true;
         state = AiState.Move;
-        yield return new WaitForSeconds(5f);
-        state = AiState.Idle;
         yield return new WaitForSeconds(3f);
+        state = AiState.Idle;
+        yield return new WaitForSeconds(4f);
         actionFlag = false;
-
     }
-
+    IEnumerator ZombieAttackAction()
+    {
+        actionFlag = true;
+        state = AiState.Attack;
+        yield return new WaitForSeconds(3f);
+        state = AiState.Idle;
+        yield return new WaitForSeconds(4f);
+        actionFlag = false;
+    }
 }

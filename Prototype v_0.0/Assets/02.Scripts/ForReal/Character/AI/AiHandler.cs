@@ -21,7 +21,7 @@ public class AiHandler : MonoBehaviour , IAi
     public bool aggroFlag { get { return aggro; } set { aggro = value; } }
     public bool aggro;
 
-    private void Start()
+    public virtual void Start()
     {
         actor = GetComponent<Actor>();
         PathRequestMgr.RequestPath(transform.position, finalTarget.position, OnPathFound);
@@ -31,7 +31,8 @@ public class AiHandler : MonoBehaviour , IAi
     {
         Debug.Log("RefreshPath");
         targetIndex = 0;
-        Array.Clear(path,0,path.Length);
+        if(path !=null)
+            Array.Clear(path,0,path.Length);
         PathRequestMgr.RequestPath(transform.position, currnetTarget.position, OnPathFound);
     }
 
@@ -94,12 +95,13 @@ public class AiHandler : MonoBehaviour , IAi
             }
 
             moveVector = currentWaypoint - transform.position;
+          
             yield return null;
         }
     }
 
     //디버그용 메서드. 길찾기 알고리즘을 통해 찾은 길을 
-  /*  public void OnDrawGizmos()
+  public void OnDrawGizmos()
     {
         if (path != null)
         {
@@ -116,5 +118,5 @@ public class AiHandler : MonoBehaviour , IAi
 
             }
         }
-    }*/
+    }
 }

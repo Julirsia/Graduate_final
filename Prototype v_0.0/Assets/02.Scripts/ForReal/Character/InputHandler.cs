@@ -87,7 +87,10 @@ public class InputHandler : MonoBehaviour //: Photon.PunBehaviour
         //TODO : 누른 버튼에 따른 AttackType command
         if (Input.GetMouseButtonDown(0))
             pressedBtn = userInput.Attack;
-
+        if (Input.GetKeyDown(KeyCode.Space))
+            actor.speed = 50f;
+        else
+            actor.speed = 8f;
         return
             (btn == pressedBtn);
     }

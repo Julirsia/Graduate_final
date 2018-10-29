@@ -10,9 +10,9 @@ namespace clientData
     }
 
     //Type Definition
-    public enum ActorType { player, enemy, boss };
+    public enum ActorType { player, enemy, boss, NPC };
     public enum WeaponType { close_Combat, longDist_Combat, throw_item };
-    public enum ItemType { heal, weapon, construction, };
+    public enum ItemType { heal, weapon, construction, eventItem };
 
     //status Definition
     public enum AiState { Idle, Move, Attack, Dead };

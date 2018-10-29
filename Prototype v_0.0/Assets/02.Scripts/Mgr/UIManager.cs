@@ -4,11 +4,20 @@ using UnityEngine;
 using UnityEngine.UI;
 using clientData;
 
+
 public class UIManager : MonoBehaviour
 {
+    public enum status { play, end};
+
     public static UIManager instance= null;
     public int gameMode;
     public GameObject[] modeUI;
+    public GameObject StartGuideUI;
+
+    public GameObject VictoryPanel;
+    public GameObject GameOverPanel;
+
+    public Image medicine;
 
     public Image[] HpBar;
     public Text[] HpText;
@@ -19,6 +28,8 @@ public class UIManager : MonoBehaviour
     {
         if (instance == null)
             instance = this;
+
+        medicine.enabled = false;
     }
 
     /* 설명 : HP바, HP텍스트를 배열형태로 받아와서 액터 코드에 맞게 본인의 HP를 표시.
@@ -29,16 +40,43 @@ public class UIManager : MonoBehaviour
     {
         if (type == ActorType.boss)
         {
-            int count = currHp / 200;
-            if (fullHp > 200)
-                HpText[actorCode / 1000].text = count.ToString();
+            //int count = currHp / 200;
+            //if (fullHp > 200)
+              //  HpText[actorCode / 1000].text = count.ToString();
 
-            HpBar[actorCode / 1000].fillAmount = (float)(currHp - 200 * count) / (float)fullHp;
+            HpBar[actorCode / 1000].fillAmount = (float)(float)currHp / (float)fullHp;
         }
         else
         {
             HpText[actorCode / 1000].text = currHp.ToString() + "/" + fullHp.ToString();
             HpBar[actorCode / 1000].fillAmount = (float)currHp / (float)fullHp;
         }
+    }
+
+    public void GuidePanelActive()
+    {
+        StartGuideUI.SetActive(false);
+    }
+    public void GetMedicine()
+    {
+        medicine.enabled= true;
+    }
+
+    public void ActiveVictoryPanel()
+    {
+        VictoryPanel.SetActive(true);
+        StartCoroutine(WaitForMotion());
+    }
+
+    public void ActiveGameOverPanel()
+    {
+        GameOverPanel.SetActive(true);
+        StartCoroutine(WaitForMotion());
+    }
+
+    IEnumerator WaitForMotion()
+    {
+        yield return new WaitForSeconds(3f);
+        Time.timeScale = 0f;
     }
 }
